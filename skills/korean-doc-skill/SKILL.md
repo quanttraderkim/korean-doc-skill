@@ -42,6 +42,13 @@ For longer strategy, planning, or report documents, prefer explicit outline numb
 
 Use bullets only for parallel items. Do not break a single sentence into fake bullets just to make the page look shorter.
 
+For wiki, research, strategy, and interview-summary notes intended for Confluence or internal sharing, prefer a bullet-first body. After headings, avoid free-floating prose paragraphs unless a short lead sentence is truly needed. Put judgments, rationale, caveats, signals, and next actions into a clear bullet hierarchy:
+
+- parent bullets: labels or judgment lines such as `핵심 판단`, `근거`, `주의사항`, `다음 액션`
+- child bullets: supporting details, examples, constraints, or implications
+
+Use tables for comparisons, metrics, option matrices, ownership, status, and other horizontal scans. If a non-table prose paragraph remains in these wiki/research notes, make sure it is deliberate and short; otherwise convert it into a parent bullet with child bullets. This rule does not override the parallel-bullet rule: bullets should group related ideas, not split one sentence into decorative line breaks.
+
 Do not force sentence-final periods onto every short line. In headings, labels, table cells, bullets, one-line judgments, and memo-style fragments, omit the final period by default. Use a period only when writing a full prose sentence with multiple clauses, when two or more sentences appear in one paragraph, or when punctuation materially reduces ambiguity.
 
 If a section starts reading like explanatory narration with many consecutive `~다.` endings, compress it. Convert narrative explanation into a summary table, a short judgment block, or 2 to 3 memo-style bullets before expanding again.
