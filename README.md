@@ -121,6 +121,24 @@ cp -R skills/korean-doc-skill .claude/skills/
 
 OpenClaw 로컬 workspace에서는 `skills/korean-doc-skill/`를 `<workspace>/skills/korean-doc-skill/` 아래에 두고 쓰면 됩니다. 설치와 sync 흐름 자체는 OpenClaw / ClawHub 공식 문서를 따르는 편이 가장 안전합니다.
 
+## Confluence 운영 원칙
+
+Confluence 문서는 모두 같은 방식으로 다루면 오히려 품질이 떨어질 수 있습니다. 이 레포에서는 아래 두 유형으로 나눠서 보는 편이 더 안전합니다.
+
+### Plain Page
+
+- 처음 만드는 초안 문서
+- 표 색상, 셀 병합, 스마트 링크, 이미지 배치 같은 native polish가 거의 없는 페이지
+- 이런 문서는 markdown 중심 작성과 전체 재업로드가 잘 맞음
+
+### Native-Managed Page
+
+- 사람이 Confluence 화면에서 직접 다듬은 페이지
+- 첫 열 강조, 색상, 병합 셀, 이미지 표 삽입, smart link, 수동 배치가 들어간 페이지
+- 이런 문서는 markdown 전체 치환보다 section patch나 storage HTML 수정이 더 안전함
+
+실무 원칙은 단순합니다. 내용 초안과 구조 설계는 markdown으로 가고, 한 번 native polish가 들어간 뒤에는 표현의 정본을 Confluence storage 쪽에 둡니다. 즉 `내용의 정본은 markdown`, `표현의 정본은 Confluence native structure`로 나눠서 보는 편이 맞습니다.
+
 ## 문서 타입별 추천 해석
 
 실제 사용에서는 위 표처럼 자연어로 말해도 충분하지만, 더 명시적으로 쓰고 싶을 때는 아래 표를 참고하면 됩니다.
@@ -155,7 +173,10 @@ OpenClaw 로컬 workspace에서는 `skills/korean-doc-skill/`를 `<workspace>/sk
 - 명사형, 짧은 판단형 끝맺음 우선
 - 결론과 핵심 판단을 앞에 배치
 - 제목은 주제 라벨이 아니라 메시지 역할로 사용
+- 헤딩 아래 설명형 연결문장 최소화
+- 섹션 사이 줄바꿈과 블록 간 여백을 충분히 둠
 - 불릿은 병렬 항목에만 사용
+- 라벨과 설명이 있는 항목은 `라벨: 설명` 한 줄보다 상위/하위 불릿 우선
 - 표는 비교, 요약, 소유자, 리스크, 옵션 정리에만 사용
 - 긴 문서는 `A.`, `A-1.` 넘버링 권장
 - 비교, 카테고리, 읽기 순서, 요약은 문단보다 작은 표 우선

@@ -34,9 +34,15 @@ Lead with the conclusion. The first visible screen should answer why the documen
 
 If the first visible screen cannot answer those three questions quickly, compress it first. Use a summary table or short labeled blocks before adding more prose.
 
+If the source already has a compact top-summary table that works, preserve it. Do not flatten a good summary table into a sequence of mini-headings and paragraphs unless the user explicitly asks for prose.
+
 Keep paragraphs short. Most paragraphs should be 2 to 4 lines. If a paragraph grows longer, split it with a stronger heading, a table, or a short list.
 
 Use headings to carry meaning. `###` headings should state the message or judgment, not a vague topic label.
+
+Use more visual breathing between sections. Leave clear blank lines after headings and between distinct blocks such as paragraph -> table, table -> bullets, bullets -> code block. If one section contains a summary sentence, a table, and a code sample, do not stack them densely without spacing.
+
+If a heading already states the point, do not reopen the section with another explanatory bridge sentence. Go straight to the table, bullets, or concrete memo line unless one short lead line is strictly needed.
 
 For longer strategy, planning, or report documents, prefer explicit outline numbering. Use top-level labels such as `A.`, `B.`, `C.` and second-level labels such as `A-1.`, `A-2.` when they materially improve scanability. Avoid going deeper than two levels unless the user explicitly wants a more formal tree.
 
@@ -47,19 +53,42 @@ For wiki, research, strategy, and interview-summary notes intended for Confluenc
 - parent bullets: labels or judgment lines such as `핵심 판단`, `근거`, `주의사항`, `다음 액션`
 - child bullets: supporting details, examples, constraints, or implications
 
+Use bullet hierarchy for label-and-detail content. Prefer a parent bullet for the label and child bullets for the explanation instead of a dense `label: explanation` line when the explanation is a full thought:
+
+- `RETS API 부재`
+  - `STT/요약 결과를 고객/매물 메모에 자동 적재하는 MVP 구현 난이도 상승`
+
+Do not over-nest. Use two levels by default, and add a third level only when it prevents a table cell or paragraph from becoming hard to scan. Keep flat bullets flat when the items are truly parallel.
+
 Use tables for comparisons, metrics, option matrices, ownership, status, and other horizontal scans. If a non-table prose paragraph remains in these wiki/research notes, make sure it is deliberate and short; otherwise convert it into a parent bullet with child bullets. This rule does not override the parallel-bullet rule: bullets should group related ideas, not split one sentence into decorative line breaks.
 
 Do not force sentence-final periods onto every short line. In headings, labels, table cells, bullets, one-line judgments, and memo-style fragments, omit the final period by default. Use a period only when writing a full prose sentence with multiple clauses, when two or more sentences appear in one paragraph, or when punctuation materially reduces ambiguity.
 
 If a section starts reading like explanatory narration with many consecutive `~다.` endings, compress it. Convert narrative explanation into a summary table, a short judgment block, or 2 to 3 memo-style bullets before expanding again.
 
+Avoid conversational bridge sentences such as `이번 건에서 가장 바꿀 가치가 큰 부분은 여기입니다`, `핵심은 ~라는 점입니다`, `즉 ~ 것이 맞습니다` when the same message can be expressed by the heading itself, a tighter table label, or a short memo phrase.
+
 If the output is intended to be pasted into a Confluence page body, do not repeat the page title as a top-level `#` heading. Confluence already renders the page title above the body, so start with a short lead sentence or the first real section such as `## A. 먼저 볼 항목`.
 
 In top-summary sections such as `개요`, keep only the largest changes, purpose, target, or scope. Move edge cases, exception branches, empty-state handling, and implementation detail into lower sections such as `주요 변경 포인트`, `예외`, or `운영 포인트`.
 
+In top summary tables, prefer literal functional labels over abstract labels. When possible, use labels such as `변경 항목`, `정책 적용 지면`, `이번 변경 범위`, `포함 정책 범위`, `유지 정책`, `예외`, `다음 액션` instead of vaguer labels such as `핵심 판단` or `주요 내용` that still require interpretation.
+
+If a label could refer to either the whole document scope or only the current change scope, qualify it explicitly. Prefer `26.4 변경 항목`, `정책 적용 지면`, `이번 현행화 범위`, `포함 정책 범위` over ambiguous shorthand such as `적용 대상` or `적용 범위`.
+
 When the document is mainly about a UI, layout, or visible behavior change, prefer an `AS-IS / TO-BE` visual comparison near the top before detailed prose. For Confluence delivery, favor native-looking links and simple table emphasis when they materially improve scanability.
 
 For short summary tables, definition tables, and policy tables in Confluence, first-column emphasis often improves scanability. If the tool can write Confluence-native table styling or post-edit the rendered page, prefer subtle first-column background shading on label columns such as `항목`, `구분`, `용어`, `화면군`. If the pipeline is markdown-only, treat this as optional post-processing rather than a required output rule.
+
+If a document needs to mark changed rows or changed cells, prefer an explicit version tag such as `26.4 변경` over color alone. Color can support the cue, but the version meaning should remain readable without relying only on color.
+
+Keep terminology aligned between summary tables, policy tables, and definition tables. If the policy table says `미노출`, do not define the same concept separately as `영역 사라짐` unless the distinction is intentional and explained.
+
+Do not overuse inline code formatting for non-code concepts. Transition labels such as `세로 -> 가로`, `가로 -> 세로`, `popup -> full` are usually document semantics, not code. Reserve inline code for real identifiers, commands, fields, enum-like literals, or values that must be copied exactly.
+
+If a table cell contains both the default rule and an exception, do not compress them into one sentence with a hyphen. Prefer a short bullet list inside the cell such as `기본 기준` and `예외` so the reader can scan the rule without reparsing the sentence.
+
+When editing an existing Confluence page that already contains native formatting such as row-header first columns, colored change markers, merged cells, embedded images, or other hand-tuned visual polish, do not assume a full markdown rewrite is safe. Prefer a storage-aware HTML edit or a surgical section update so that existing formatting is preserved.
 
 Use tables when the reader needs comparison, categorization, ownership, tradeoffs, options, targets, state transitions, or summary at a glance.
 
@@ -117,6 +146,14 @@ Avoid:
 - `본질적으로 중요한 의미를 갖는다고 판단됨`
 - `결과적으로 여러 측면에서 유의미한 효과 기대 가능`
 - `이 기능은 고객관리에 중요한 역할을 한다`
+- `이번 건에서 가장 바꿀 가치가 큰 부분은 여기입니다`
+- `핵심은 문제 발생 시 누가 얼마나 빨리 대응할 수 있나라는 점입니다`
+
+Prefer replacing those bridge sentences with tighter forms such as:
+
+- `우선 전환 대상은 전면 / 보상형 / 보상형 전면 preload API`
+- `판단 기준은 대응 속도와 운영 단순화`
+- `다음 표는 포맷별 preload 전환 우선순위`
 
 ## Structural Defaults
 
