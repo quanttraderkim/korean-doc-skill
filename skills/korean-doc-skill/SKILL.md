@@ -36,14 +36,19 @@ If the first visible screen cannot answer those questions quickly, compress it f
 
 Top summaries are bullet-first by default. Do not keep or create a table just because it is compact. Use a top-summary table only when repeated columns create real horizontal scan value, such as `대상 / 판단 / 이유 / 다음 액션` or `안 / 장점 / 리스크 / 권고`.
 
-A 2-column top summary such as `항목 / 판단`, `구분 / 내용`, or `항목 / 설명` is usually label-and-detail content disguised as a table. If it has only 3 to 5 rows and no real horizontal comparison, convert it to parent/child bullets:
+A 2-column top summary such as `항목 / 판단`, `구분 / 내용`, or `항목 / 설명` is usually label-and-detail content disguised as a table. If it has only 3 to 5 rows and no real horizontal comparison, treat it as a nested-bullet structure first. For Confluence/wiki-bound documents, then promote only the first-level label bullets to `####` headings and keep the child content as normal bullets:
 
-- `결론`
-    - `...`
-- `적용 우선순위`
-    - `...`
-- `주의점`
-    - `...`
+#### 결론
+
+- `...`
+
+#### 적용 우선순위
+
+- `...`
+
+#### 주의점
+
+- `...`
 
 Keep paragraphs short. Most paragraphs should be 2 to 4 lines. If a paragraph grows longer, split it with a stronger heading, a short list, or a table only when comparison axes are clear.
 
@@ -59,10 +64,32 @@ For longer strategy, planning, or report documents, prefer explicit outline numb
 
 Use bullets only for parallel items. Do not break a single sentence into fake bullets just to make the page look shorter.
 
-For wiki, research, strategy, and interview-summary notes intended for Confluence or internal sharing, prefer a bullet-first body. After headings, avoid free-floating prose paragraphs unless a short lead sentence is truly needed. Put conclusions, rationale, caveats, signals, and next actions into a clear bullet hierarchy:
+For wiki, research, strategy, and interview-summary notes intended for Confluence or internal sharing, prefer a bullet-first body. After headings, avoid free-floating prose paragraphs unless a short lead sentence is truly needed. Put conclusions, rationale, caveats, signals, and next actions into scan-friendly blocks:
 
-- parent bullets: labels or judgment lines such as `결론`, `요청사항`, `근거`, `주의사항`, `다음 액션`
-- child bullets: supporting details, examples, constraints, or implications
+- `####` headings: labels or judgment lines such as `결론`, `요청사항`, `근거`, `주의사항`, `다음 액션` when they act as mini-section titles
+- bullets: supporting details, examples, constraints, implications, or true parallel content items
+
+For Confluence/wiki documents, first identify nested-bullet label-and-detail structures:
+
+- `결론`
+    - `...`
+- `전제`
+    - `...`
+
+If the first-level bullet is effectively a label or mini-section title rather than a content item, convert that first-level bullet to a `####` heading and keep the second-level bullets as normal bullets. This is especially useful in label-and-detail sections such as `A. 요약`, `D. 적용 판단`, `E. 원칙`, and `F. 반영 후보`.
+
+Prefer:
+
+#### 결론
+
+- 과금 은폐가 아니라 고객-facing 단순화/업무 중단 완화 정책으로 사용
+
+Avoid:
+
+- 결론
+    - 과금 은폐가 아니라 고객-facing 단순화/업무 중단 완화 정책으로 사용
+
+Do not promote every bullet. Only promote the first-level bullet when it is a label for the bullets below it. If the bullets are truly parallel content items, keep them as bullets.
 
 Do not create a separate `핵심 판단` section by default. Use `핵심 판단` only when the document is explicitly decision-oriented and the source really contains a decision to make. Otherwise choose concrete section names such as `결론`, `이번에 정할 것`, `요청사항`, `운영 기준`, `남은 이슈`, or a message-carrying heading.
 
@@ -71,7 +98,7 @@ Use bullet hierarchy for label-and-detail content. Prefer a parent bullet for th
 - `RETS API 부재`
   - `STT/요약 결과를 고객/매물 메모에 자동 적재하는 MVP 구현 난이도 상승`
 
-This also applies to `A. 검토 요약`, `A. 핵심 요약`, and similar first-screen sections. A short summary with labels such as `결론`, `우선순위`, `주의점`, `반영 후보` usually reads better as nested bullets than as a table.
+For Confluence/wiki first-screen sections such as `A. 검토 요약`, `A. 핵심 요약`, and similar summaries, start from nested bullets conceptually, then lift only the first-level labels. Labels such as `결론`, `우선순위`, `주의점`, and `반영 후보` usually read better as `####` headings with the original child bullets beneath them.
 
 Do not over-nest. Use two levels by default, and add a third level only when it prevents a table cell or paragraph from becoming hard to scan. Keep flat bullets flat when the items are truly parallel.
 
@@ -117,9 +144,11 @@ When editing an existing Confluence page that already contains native formatting
 
 Use tables when the reader needs comparison, categorization, ownership, tradeoffs, options, targets, state transitions, or metric/status scanning.
 
-Before creating a table, check whether each column has a distinct scanning purpose. If the table would become `항목 / 설명` only, prefer parent bullets with child bullets. Do not leave real comparison logic buried in prose, but do not turn simple explanation into a table.
+Before creating a table, check whether each column has a distinct scanning purpose. If the table would become `항목 / 설명` only, prefer structured label-and-detail formatting. In Confluence/wiki, that usually means `####` label headings with simple bullets beneath them; in non-wiki output, nested bullets can be enough. Do not leave real comparison logic buried in prose, but do not turn simple explanation into a table.
 
-If the table is only `항목 / 판단` and appears at the top of the document, be even stricter. `결론`, `적용 우선순위`, `주의점`, and `문서 반영 후보` are labels, not comparison axes; render them as bullets unless there is a third column that adds repeatable scan value.
+If the table is only `항목 / 판단` and appears at the top of the document, be even stricter. `결론`, `적용 우선순위`, `주의점`, and `문서 반영 후보` are labels, not comparison axes; render them as `####` headings plus bullets in Confluence/wiki unless there is a third column that adds repeatable scan value.
+
+When removing a table and converting it into bullets for Confluence/wiki, check the first bullet level. If the first-level bullet is just the label for a nested-bullet group, promote that first-level label to a `####` heading by default and keep the child bullets below it.
 
 Preserve the source logic unless the user explicitly asks for a report-first rewrite. Add structure first. Rewrite substance only when it materially improves clarity.
 
@@ -687,5 +716,6 @@ Before returning the final draft, check:
 11. Are default rules, exceptions, overrides, and change-history requirements separated into bullets when they appear together?
 12. Would Confluence markdown preserve inline code and underscores correctly, or should those tokens be written as readable labels?
 13. If a Confluence bullet list is followed by a table or the next heading, is the boundary still clear after export/rendering?
-14. Did any top summary table collapse into simple `label + judgment` rows that should be nested bullets instead?
+14. Did any top summary table collapse into simple `label + judgment` rows that should become `####` headings plus bullets in Confluence/wiki, or nested bullets in non-wiki output?
 15. Did the draft avoid meta headings such as `먼저 볼 항목`, `지금 먼저 볼 것`, `읽기 순서`, or `권장 읽기 순서` unless explicitly requested?
+16. In Confluence/wiki label-and-detail sections, did first-level label bullets become `####` headings while child bullets stayed as bullets?
