@@ -1,6 +1,6 @@
 ---
 name: korean-doc-skill
-description: Use this skill when Korean business documents feel too long, too polite, too abstract, or too hard to scan. Apply it to strategy memos, upper-planning docs, PRDs, service planning docs, capability specs, execution guides, runbooks, script usage guides, weekly updates, one-pagers, and hub pages so they read like concise report-style memos with strong structure, purposeful bullets, tables only where useful, explicit numbering for long docs, and minimal filler.
+description: Use this skill when Korean business documents feel too long, too polite, too abstract, or too hard to scan. Apply it to strategy memos, business opportunity or market validation docs, upper-planning docs, PRDs, service planning docs, capability specs, execution guides, runbooks, script usage guides, weekly updates, one-pagers, and hub pages so they read like concise report-style memos with strong structure, purposeful bullets, tables only where useful, explicit numbering for long docs, and minimal filler.
 homepage: https://github.com/quanttraderkim/korean-doc-skill
 user-invocable: true
 metadata: {"openclaw":{"homepage":"https://github.com/quanttraderkim/korean-doc-skill"}}
@@ -22,7 +22,7 @@ Typical trigger signals:
 - the reader should be able to skim it quickly
 - the reader needs to execute, verify, or judge something quickly
 - the output will be uploaded to a wiki or shared as an internal review document
-- the user says things like `전략 문서로 정리`, `상위기획처럼`, `PRD처럼`, `위키 허브처럼`, `위클리처럼`, `이슈 대응 문서처럼`, `실행 가이드처럼`, `점검 절차처럼`, `런북처럼`
+- the user says things like `전략 문서로 정리`, `사업 기회 검토처럼`, `상위기획처럼`, `PRD처럼`, `위키 허브처럼`, `위클리처럼`, `이슈 대응 문서처럼`, `실행 가이드처럼`, `점검 절차처럼`, `런북처럼`
 
 You do not need exact preset names from the user. If the user's natural-language intent is clear enough, infer the closest preset and proceed. If the user does not explicitly name the document type but the source itself clearly looks like a strategy memo, PRD, weekly, issue response memo, or hub page, infer from the source and continue.
 
@@ -86,6 +86,8 @@ If a document needs to mark changed rows or changed cells, prefer an explicit ve
 
 Keep terminology aligned between summary tables, policy tables, and definition tables. If the policy table says `미노출`, do not define the same concept separately as `영역 사라짐` unless the distinction is intentional and explained.
 
+For early business opportunity, market validation, partner review, or investment-hypothesis docs, do not overstate uncertain economics, legal feasibility, or operational cost. Separate rough market sizing from confirmed revenue. Mark reference-only scale as `참고용` or `N/A` instead of forcing a revenue estimate. If a cost item is likely negligible because of device capability, existing entitlement, or current free channel, say so plainly and move detailed unit economics to `확인 필요`.
+
 Do not overuse inline code formatting for non-code concepts. Transition labels such as `세로 -> 가로`, `가로 -> 세로`, `popup -> full` are usually document semantics, not code. Reserve inline code for real identifiers, commands, fields, enum-like literals, or values that must be copied exactly.
 
 If a table cell contains both the default rule and an exception, do not compress them into one sentence with a hyphen. Prefer a short bullet list inside the cell such as `기본 기준` and `예외` so the reader can scan the rule without reparsing the sentence.
@@ -121,6 +123,7 @@ In practice, most users will not name the mode explicitly. If the user says `정
 Natural-language shortcuts:
 
 - `전략 문서`, `방향성 검토`, `논의 안` -> `Strategy Memo`
+- `사업 기회 검토`, `시장 검증`, `파트너 연계 검토`, `사업성 검토`, `MVP 사업 검토` -> `Business Opportunity / Market Validation`
 - `상위기획`, `연간 계획`, `컨셉 기획` -> `Upper Planning / Concept Planning`
 - `상세기획`, `PRD`, `기획서` -> `PRD / Service Planning Doc`
 - `유즈케이스`, `직군별 시나리오` -> `Use Case / Vertical Workflow Doc`
@@ -171,7 +174,7 @@ For long documents, add an executive-summary block near the top when it genuinel
 
 For strategy memos, use-case docs, and hub pages, make the first screen compact, but choose bullets over tables when the content is not truly comparative.
 
-For long documents, numbered section labels are often worth adding directly in headings. Example: `## A. 핵심 요약`, `### A-1. 왜 지금 중요한가`.
+For long documents, numbered section labels are often worth adding directly in headings. Preserve the existing numbering style when it works. Use `1.`, `2.`, `3-1.` for business review or Confluence working docs that read like internal 검토 자료. Use `A.`, `A-1.` when the document is closer to a narrative memo or strategy note.
 
 When the document is a hub or index page, optimize for navigation first. The reader should understand what this document set is, where to start, and which child documents matter without reading long prose.
 
@@ -220,6 +223,33 @@ Rules:
 - Compress execution detail, long history tables, and metadata unless they change the current judgment
 - If execution detail must remain, push it below the direction-setting sections
 - Distinguish clearly between `방향`, `우선순위`, and `후속 상세기획에서 풀 내용`
+
+### Business Opportunity / Market Validation
+
+Recommended structure:
+
+- `추진 목적 및 사업 비전`
+- `타겟 시장 및 매출 풀 검토`
+- `시장 니즈 및 자사 경쟁력`
+- `MVP 방향성 및 유저 시나리오`
+- `사업 모델 및 과금 구조 검토`
+- `법무/개인정보보호 및 권한 공유 설계`
+- `확인 필요 사항`
+- `참고 문서`
+
+Rules:
+
+- Treat this as a working 검토 문서, not an executive recommendation memo. Do not force a separate `핵심 요약` or `핵심 판단` section unless the user asks for decision material.
+- The first screen should show what opportunity is being verified, with whom, for which first market, and what expansion model is being tested.
+- Prefer `추진 목적 및 사업 비전` with a one-line proposition, then bullets for `단기 목적`, `장기 목적`, and `핵심 방향`.
+- Use business-specific section names over generic consulting labels. Prefer `타겟 시장 및 매출 풀 검토`, `시장 니즈 및 자사 경쟁력`, `MVP 방향성`, `과금 구조`, `확인 필요 사항`.
+- Use tables for real repeated fields: market phase / target / size / revenue pool / note, field need / current problem / asset or solution, AS-IS / TO-BE, priority / feature / rationale, cost item / review point / note.
+- Use nested bullets for R&R, sales message, charging flow, legal/privacy assumptions, and partner responsibilities when each role needs sub-detail.
+- For priority tables in Confluence, status labels such as `핵심`, `추가`, and `가드레일` are useful when they separate MVP core, expansion, and risk-control items.
+- Distinguish rough assumptions from confirmed facts. Use wording such as `가정`, `MAX`, `참고용`, `N/A`, `재검토`, and `확인 필요` when the number is directional.
+- Do not invent detailed unit economics too early. Keep early cost sections to cost-item identification, ARPU floor, and margin-risk checks. Remove or down-rank speculative cost lines that are likely negligible or already covered by device capability or existing free channels.
+- For legal/privacy-sensitive flows, state that the section is a planning assumption and requires legal/privacy review before application. Put automatic collection, employee-phone sharing, consent, retention, deletion, access logs, and advertising-message risk into explicit guardrails.
+- Keep references and linked child pages at the bottom unless a linked page is required to understand the current decision.
 
 ### PRD / Service Planning Doc
 
@@ -623,7 +653,7 @@ Before returning the final draft, check:
 3. Has the draft drifted into long `~한다` narrative explanation?
 4. Are bullets used only for real parallel items?
 5. Are tables used only where shared columns, comparison, status, ownership, metrics, or policy fields matter?
-6. Would explicit `A. / A-1.` numbering improve scanability?
+6. Would explicit `A. / A-1.` or `1. / 3-1.` numbering improve scanability while preserving the document's natural style?
 7. Are the headings carrying actual messages?
 8. Is any paragraph still too long and better split?
 9. Is any em dash (`—`) used where a colon, parentheses, period, slash, or nested bullet would read more naturally?
