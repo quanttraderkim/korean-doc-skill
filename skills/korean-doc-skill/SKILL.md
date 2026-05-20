@@ -1,6 +1,6 @@
 ---
 name: korean-doc-skill
-description: Use this skill when Korean business documents feel too long, too polite, too abstract, or too hard to scan. Apply it to strategy memos, upper-planning docs, PRDs, service planning docs, capability specs, execution guides, runbooks, script usage guides, weekly updates, one-pagers, and hub pages so they read like concise report-style memos with strong structure, selective tables, explicit numbering for long docs, and minimal filler.
+description: Use this skill when Korean business documents feel too long, too polite, too abstract, or too hard to scan. Apply it to strategy memos, upper-planning docs, PRDs, service planning docs, capability specs, execution guides, runbooks, script usage guides, weekly updates, one-pagers, and hub pages so they read like concise report-style memos with strong structure, purposeful bullets, tables only where useful, explicit numbering for long docs, and minimal filler.
 homepage: https://github.com/quanttraderkim/korean-doc-skill
 user-invocable: true
 metadata: {"openclaw":{"homepage":"https://github.com/quanttraderkim/korean-doc-skill"}}
@@ -30,28 +30,30 @@ You do not need exact preset names from the user. If the user's natural-language
 
 Write in short report-style memo Korean. Reduce repetitive `~입니다`, `~합니다`, `~됩니다`. Do not force every sentence into rigid `~함`. Also avoid drifting into long declarative prose such as repeated `~한다`, `~이다`, or `~다` sentence endings. Prefer noun phrases and short judgment-oriented wording such as `~필요`, `~전제`, `~검토`, `~제안`, `~가능`, `~우선`.
 
-Lead with the conclusion. The first visible screen should answer why the document exists, what the key judgment is, and what needs to happen next.
+Lead with the conclusion. The first visible screen should answer why the document exists, what the main takeaway, request, decision, or next action is, and what needs to happen next.
 
-If the first visible screen cannot answer those three questions quickly, compress it first. Use a summary table or short labeled blocks before adding more prose.
+If the first visible screen cannot answer those questions quickly, compress it first. Prefer a short lead block or bullet hierarchy. Use a table only when the content has real columns to compare or scan.
 
 If the source already has a compact top-summary table that works, preserve it. Do not flatten a good summary table into a sequence of mini-headings and paragraphs unless the user explicitly asks for prose.
 
-Keep paragraphs short. Most paragraphs should be 2 to 4 lines. If a paragraph grows longer, split it with a stronger heading, a table, or a short list.
+Keep paragraphs short. Most paragraphs should be 2 to 4 lines. If a paragraph grows longer, split it with a stronger heading, a short list, or a table only when comparison axes are clear.
 
 Use headings to carry meaning. `###` headings should state the message or judgment, not a vague topic label.
 
 Use more visual breathing between sections. Leave clear blank lines after headings and between distinct blocks such as paragraph -> table, table -> bullets, bullets -> code block. If one section contains a summary sentence, a table, and a code sample, do not stack them densely without spacing.
 
-If a heading already states the point, do not reopen the section with another explanatory bridge sentence. Go straight to the table, bullets, or concrete memo line unless one short lead line is strictly needed.
+If a heading already states the point, do not reopen the section with another explanatory bridge sentence. Go straight to bullets, a concrete memo line, or a table only when shared columns matter.
 
 For longer strategy, planning, or report documents, prefer explicit outline numbering. Use top-level labels such as `A.`, `B.`, `C.` and second-level labels such as `A-1.`, `A-2.` when they materially improve scanability. Avoid going deeper than two levels unless the user explicitly wants a more formal tree.
 
 Use bullets only for parallel items. Do not break a single sentence into fake bullets just to make the page look shorter.
 
-For wiki, research, strategy, and interview-summary notes intended for Confluence or internal sharing, prefer a bullet-first body. After headings, avoid free-floating prose paragraphs unless a short lead sentence is truly needed. Put judgments, rationale, caveats, signals, and next actions into a clear bullet hierarchy:
+For wiki, research, strategy, and interview-summary notes intended for Confluence or internal sharing, prefer a bullet-first body. After headings, avoid free-floating prose paragraphs unless a short lead sentence is truly needed. Put conclusions, rationale, caveats, signals, and next actions into a clear bullet hierarchy:
 
-- parent bullets: labels or judgment lines such as `핵심 판단`, `근거`, `주의사항`, `다음 액션`
+- parent bullets: labels or judgment lines such as `결론`, `요청사항`, `근거`, `주의사항`, `다음 액션`
 - child bullets: supporting details, examples, constraints, or implications
+
+Do not create a separate `핵심 판단` section by default. Use `핵심 판단` only when the document is explicitly decision-oriented and the source really contains a decision to make. Otherwise choose concrete section names such as `결론`, `이번에 정할 것`, `요청사항`, `운영 기준`, `남은 이슈`, or a message-carrying heading.
 
 Use bullet hierarchy for label-and-detail content. Prefer a parent bullet for the label and child bullets for the explanation instead of a dense `label: explanation` line when the explanation is a full thought:
 
@@ -60,11 +62,11 @@ Use bullet hierarchy for label-and-detail content. Prefer a parent bullet for th
 
 Do not over-nest. Use two levels by default, and add a third level only when it prevents a table cell or paragraph from becoming hard to scan. Keep flat bullets flat when the items are truly parallel.
 
-Use tables for comparisons, metrics, option matrices, ownership, status, and other horizontal scans. If a non-table prose paragraph remains in these wiki/research notes, make sure it is deliberate and short; otherwise convert it into a parent bullet with child bullets. This rule does not override the parallel-bullet rule: bullets should group related ideas, not split one sentence into decorative line breaks.
+Use tables for comparisons, metrics, option matrices, ownership, status, and other horizontal scans. Do not use a table just because the section is important or because there are three related ideas. If the content is label + explanation, cause + effect, or sequential reasoning, prefer nested bullets or short paragraphs. This rule does not override the parallel-bullet rule: bullets should group related ideas, not split one sentence into decorative line breaks.
 
 Do not force sentence-final periods onto every short line. In headings, labels, table cells, bullets, one-line judgments, and memo-style fragments, omit the final period by default. Use a period only when writing a full prose sentence with multiple clauses, when two or more sentences appear in one paragraph, or when punctuation materially reduces ambiguity.
 
-If a section starts reading like explanatory narration with many consecutive `~다.` endings, compress it. Convert narrative explanation into a summary table, a short judgment block, or 2 to 3 memo-style bullets before expanding again.
+If a section starts reading like explanatory narration with many consecutive `~다.` endings, compress it. Convert narrative explanation into a short lead, a bullet hierarchy, or a table only when the reader needs column-by-column comparison.
 
 Avoid conversational bridge sentences such as `이번 건에서 가장 바꿀 가치가 큰 부분은 여기입니다`, `핵심은 ~라는 점입니다`, `즉 ~ 것이 맞습니다` when the same message can be expressed by the heading itself, a tighter table label, or a short memo phrase.
 
@@ -90,15 +92,15 @@ If a table cell contains both the default rule and an exception, do not compress
 
 When editing an existing Confluence page that already contains native formatting such as row-header first columns, colored change markers, merged cells, embedded images, or other hand-tuned visual polish, do not assume a full markdown rewrite is safe. Prefer a storage-aware HTML edit or a surgical section update so that existing formatting is preserved.
 
-Use tables when the reader needs comparison, categorization, ownership, tradeoffs, options, targets, state transitions, or summary at a glance.
+Use tables when the reader needs comparison, categorization, ownership, tradeoffs, options, targets, state transitions, or metric/status scanning.
 
-If three or more items need to be compared, categorized, or scanned quickly, default to a table rather than a paragraph. Do not leave comparison logic buried in prose.
+Before creating a table, check whether each column has a distinct scanning purpose. If the table would become `항목 / 설명` only, prefer parent bullets with child bullets. Do not leave real comparison logic buried in prose, but do not turn simple explanation into a table.
 
 Preserve the source logic unless the user explicitly asks for a report-first rewrite. Add structure first. Rewrite substance only when it materially improves clarity.
 
 When documenting writing rules or guidance, avoid dense narrative explanation. Prefer short labeled blocks such as `A. 기본 방향`, `B. 문체`, `C. 구조`, `D. 표/불릿/제목`.
 
-For long planning or policy documents, do not place document history, revision logs, ticket references, or guide metadata above the real summary. Show purpose and key judgment first, then place metadata below if needed.
+For long planning or policy documents, do not place document history, revision logs, ticket references, or guide metadata above the real summary. Show purpose, main takeaway, and requested action first, then place metadata below if needed.
 
 Avoid em dash (`—`) as a mid-sentence separator. Korean business memos rarely use it, and it can read as a foreign habit in internal docs. Replace with one of: colon (`:`) for label and explanation, parentheses for parenthetical context, period to split into two sentences, slash (`/`) for parallel alternatives, or a nested bullet with 4-space indent for longer elaborations. If a single line reads like `X — Y`, first consider whether `Y` belongs as a sub-bullet under `X` instead.
 
@@ -138,7 +140,7 @@ Prefer:
 - `초기 도입은 A안 우선`
 - `후속 연락 누락이 거래 누락으로 이어짐`
 - `무료 유저 수익화는 필요하나 총매출 임팩트는 제한적`
-- `핵심 타깃은 반복 고객 관리가 중요한 업종`
+- `초기 타깃은 반복 고객 관리 업종`
 
 Avoid:
 
@@ -153,21 +155,21 @@ Prefer replacing those bridge sentences with tighter forms such as:
 
 - `우선 전환 대상은 전면 / 보상형 / 보상형 전면 preload API`
 - `판단 기준은 대응 속도와 운영 단순화`
-- `다음 표는 포맷별 preload 전환 우선순위`
+- `포맷별 preload 전환 우선순위는 대응 속도 기준으로 정리`
 
 ## Structural Defaults
 
-Unless the user asks otherwise, use this order:
+Unless the user asks otherwise, start from this order and rename sections to match the source:
 
 1. `목적`
 2. `핵심 요약`
-3. `핵심 판단` or main analysis sections
+3. main analysis, decision, request, or operating-standard sections
 4. `리스크 / 전제 / 고려사항`
 5. `시사점 / 다음 액션 / R&R`
 
-For long documents, add an executive-summary table near the top when it genuinely helps the reader.
+For long documents, add an executive-summary block near the top when it genuinely helps the reader. This can be bullets, short labeled lines, or a table. Do not default to a table.
 
-For strategy memos, use-case docs, and hub pages, assume a top summary table is needed unless the source is already extremely compact.
+For strategy memos, use-case docs, and hub pages, make the first screen compact, but choose bullets over tables when the content is not truly comparative.
 
 For long documents, numbered section labels are often worth adding directly in headings. Example: `## A. 핵심 요약`, `### A-1. 왜 지금 중요한가`.
 
@@ -182,7 +184,7 @@ Recommended structure:
 - `목적`
 - `핵심 요약`
 - `왜 중요한가`
-- `핵심 판단`
+- `판단 / 방향`
 - `근거`
 - `리스크/전제`
 - `시사점`
@@ -190,12 +192,12 @@ Recommended structure:
 Rules:
 
 - Put the judgment in headings
-- Put one comparison or summary table near the top by default
+- Use a comparison table near the top only when the memo compares options, targets, tradeoffs, or criteria
 - Use lists for reasons, risks, or evidence only
 - Avoid essay-style narration
-- If the first screen does not show `왜 중요한가 / 핵심 판단 / 시사점`, compress before expanding
+- If the first screen does not show `왜 중요한가 / 판단 또는 방향 / 시사점`, compress before expanding
 - If the source is option-heavy, show `권고안`, `비교 기준`, and `요청사항` on the first screen before detailed evidence
-- For option-comparison memos, default to one compact comparison table first and push detailed financial or operational backup below
+- For option-comparison memos, use one compact comparison table and push detailed financial or operational backup below
 
 ### Upper Planning / Concept Planning
 
@@ -213,8 +215,8 @@ Recommended structure:
 Rules:
 
 - Treat this as a direction-setting document, not a full execution plan
-- The first screen should show `핵심 판단 / 방향 / 우선순위 / 1차 범위`
-- Use summary tables aggressively near the top
+- The first screen should show `방향 / 우선순위 / 1차 범위 / 결정 필요사항`
+- Use summary bullets near the top by default; use tables only when comparing options, scope, or ownership
 - Compress execution detail, long history tables, and metadata unless they change the current judgment
 - If execution detail must remain, push it below the direction-setting sections
 - Distinguish clearly between `방향`, `우선순위`, and `후속 상세기획에서 풀 내용`
@@ -236,13 +238,13 @@ Recommended structure:
 Rules:
 
 - Prefer explicit scope boundaries
-- Use tables for requirements, scenarios, dependencies, or metrics
+- Use tables for requirements, scenarios, dependencies, or metrics when multiple rows share fields
 - Put unresolved items in a separate section instead of burying them in prose
-- For long planning docs, show `핵심 판단 / 범위 / 범위 제외 또는 후속 / 오픈 이슈` near the top
-- If policy, exception, storage, upload, or lifecycle rules are mixed together, split them into labeled tables before adding prose
-- When a source contains large mapping tables, keep the original detail but add a smaller summary table first so the reader can understand the logic before reading the full matrix
+- For long planning docs, show `결론 또는 방향 / 범위 / 범위 제외 또는 후속 / 오픈 이슈` near the top
+- If policy, exception, storage, upload, or lifecycle rules are mixed together, split them into labeled bullets or tables according to whether the reader needs vertical explanation or horizontal comparison
+- When a source contains large mapping tables, keep the original detail but add a compact orientation block first. Use bullets if the orientation is just label + explanation; use a table if it compares repeated fields.
 - If the document is policy-heavy, prefer `활성화 조건 → 생성/저장 → 예외 다운로드 → 업로드/리마인드 → 미노출/파기/삭제 → 오픈 이슈` ordering
-- For policy-heavy planning docs, separate data principles, exception rules, and deletion/retention rules into tables before narrative explanation
+- For policy-heavy planning docs, separate data principles, exception rules, and deletion/retention rules into grouped bullets or tables before narrative explanation
 - Move revision history or operational metadata below the top summary unless the history itself is the subject
 
 ### Skill Spec / Capability Spec
@@ -277,7 +279,7 @@ Recommended structure:
 Rules:
 
 - Put summary first
-- Use tables aggressively for options, impact, and ownership
+- Use tables for options, impact, and ownership only when multiple rows share the same comparison columns
 - Use collapsed detail only for backup material, not for the main argument
 
 ### Execution Guide / Runbook / Script Usage Guide
@@ -297,7 +299,7 @@ Rules:
 - Put the final artifact, final file, final column, or final judgment point on the first screen
 - If the reader only needs one file, one command, or one result field, state that explicitly near the top
 - Show the shortest successful execution path before detailed explanation
-- Prefer compact tables for `입력값`, `생성 파일`, `판정 기준`, `수동 확인 경로`
+- Prefer compact bullets for short guidance. Use tables for `입력값`, `생성 파일`, `판정 기준`, `수동 확인 경로` only when there are multiple comparable items.
 - When permission issues or environment limits are likely, add a separate fallback section instead of mixing it into the main flow
 - This is not a live tracking board unless the document is continuously updated for status monitoring
 - For CloudShell, console, script, or operational check docs, prefer `A. 먼저 볼 항목 -> B. 바로 실행하는 순서 -> C. 판정 기준 -> D. 결과 확인 -> E. 권한 제한 시 수동 확인` ordering
@@ -315,7 +317,7 @@ Recommended structure:
 Rules:
 
 - Keep it short enough to skim in one screen per section
-- Prefer status tables over long progress prose
+- Prefer status tables over long progress prose only when status, owner, date, and next action need to be scanned together
 - Separate done, blocked, next clearly
 - Treat this as the default weekly preset
 - Use this preset for short weekly summaries and dashboard-style updates
@@ -348,9 +350,8 @@ Rules:
 Recommended structure:
 
 - `목적`
-- `핵심 판단`
-- `선택지 비교`
 - `추천안`
+- `선택지 비교`
 - `리스크 / 전제`
 - `요청 결정사항`
 
@@ -358,7 +359,7 @@ Rules:
 
 - Put the recommended option near the top
 - Keep the document tight
-- Use one main comparison table
+- Use one main comparison table only when there are multiple options with shared criteria
 - Avoid background history unless it changes the decision
 
 ### Use Case / Vertical Workflow Doc
@@ -378,10 +379,10 @@ Rules:
 
 - Explain the situation as `상황 -> 동작 -> 가치` rather than loose description
 - Use short scene-oriented headings
-- Prefer one summary table near the top for `핵심 가치 / 대표 장면 / 피해야 할 포지션`
+- Prefer a short bullet summary near the top for `핵심 가치 / 대표 장면 / 피해야 할 포지션`; use a table only when comparing multiple use cases
 - Avoid turning the whole document into narrative explanation
 - If multiple use cases exist, separate them as parallel blocks with the same shape
-- If representative scenes are more than two, present them as a table or repeated fixed blocks, not free prose
+- If representative scenes are more than two, present them as repeated fixed blocks or a table when the same fields repeat
 
 ### Hub / Index Page
 
@@ -398,7 +399,7 @@ Rules:
 
 - Optimize for navigation, not persuasion
 - Keep the top area short and high-signal
-- Use tables or grouped bullets to show category purpose and representative documents
+- Use grouped bullets by default to show category purpose and representative documents. Use tables only when categories must be scanned across the same fields.
 - Avoid repeating the same document list in multiple formats unless each list serves a different reading path
 - First screen should show `문서 묶음 정의 / 지금 먼저 볼 것 / 읽기 순서` before longer explanation
 
@@ -416,13 +417,13 @@ Recommended structure:
 Rules:
 
 - Optimize for live tracking, not persuasive narrative
-- Put status, owner, next action, and timing in tables by default
+- Put status, owner, next action, and timing in tables when those fields repeat across multiple items
 - Keep dated updates compact; do not let them drift into diary-style prose
 - Separate `현재 상태`, `결정 필요`, and `참고 메모` clearly
 - Use stable status labels such as `진행 중`, `대기`, `완료`, `리스크`
 - If the page mixes agenda, tracking, and memo content, split them into separate labeled sections before polishing
 - Use this preset for open issue boards, check-needed pages, and active coordination pages
-- Keep unresolved items and resolved history in separate sections or tables
+- Keep unresolved items and resolved history in separate sections, grouped bullets, or tables according to scan needs
 - If the source is mainly a chronological closed-issue log, do not force this shape; treat it as an issue history / incident log candidate instead
 
 ### Issue History / Incident Log (Experimental)
@@ -442,7 +443,7 @@ Rules:
 - Optimize for reference and recall, not for live tracking
 - Keep chronology and incident boundaries explicit
 - For each incident, prefer a repeated fixed shape such as `이슈 내용 / 원인 / 영향 / 조치 / 후속`
-- Put one compact index or summary block near the top before long historical detail
+- Put one compact index or summary block near the top before long historical detail. Use bullets when the index is short; use a table when the same fields repeat across incidents.
 - Separate active unresolved tracking from closed historical record
 - If the source is mainly a live open-issue board, use `Tracking / Ops Board` instead
 
@@ -462,7 +463,7 @@ Rules:
 - Use this for PR response prep, executive Q&A prep, external inquiry 대응, and sensitive issue explanation memos
 - Put the official stance or recommended answer on the first screen
 - Separate `공식 답변`, `내부 판단`, `미확정 사항`, and `추가 확인 필요` clearly
-- Prefer tables for `질문 / 답변 / 리스크 / 상태 / 담당`
+- Prefer tables for `질문 / 답변 / 리스크 / 상태 / 담당` only when multiple questions share those fields
 - If the source is mainly a day-by-day 대응 연표, treat it as `Issue History / Incident Log` instead of forcing a response-memo shape
 
 ## Hard Don’ts
@@ -472,6 +473,10 @@ Do not write long introductory filler before the real point.
 Do not use bullet points to simulate paragraph breaks.
 
 Do not hide comparisons, category roles, or reading order inside prose when a small table would show them faster.
+
+Do not turn short summaries, label-and-detail notes, or two to three related ideas into tables when nested bullets would read more naturally.
+
+Do not repeat `핵심 판단` as a default section title across documents. Reserve it for real decision material.
 
 Do not repeat the same judgment in slightly different wording.
 
@@ -556,12 +561,15 @@ Use tables for:
 - option comparison
 - target segment comparison
 - ownership / R&R
-- summary at a glance
+- repeated status, metric, policy, or question fields
 
 Do not use tables for:
 
 - one short claim
 - one example sentence
+- label + explanation content
+- sequential reasoning
+- two or three related bullets without shared columns
 - a paragraph that reads naturally without comparison
 
 ## Rewrite Workflow
@@ -573,7 +581,8 @@ When using this skill:
 3. Restructure the outline before rewriting sentences.
 4. Convert long narrative blocks into one of:
    - a stronger heading plus short paragraph
-   - a summary table
+   - nested bullets for label + explanation or cause + effect
+   - a summary table only when shared columns make the scan faster
    - a true parallel bullet list
 5. If the output is guidance, checklist, or a hub page, prefer grouped rule blocks over essay-style explanation.
 6. Cut filler and abstract phrases last.
@@ -609,12 +618,13 @@ When updating a page that already carries reader feedback, preserve collaborativ
 
 Before returning the final draft, check:
 
-1. Does the first visible screen show the purpose and key judgment?
+1. Does the first visible screen show the purpose and main takeaway, request, or next action?
 2. Are `~입니다 / ~합니다 / ~됩니다` still overused?
 3. Has the draft drifted into long `~한다` narrative explanation?
 4. Are bullets used only for real parallel items?
-5. Are tables used where comparison or summary matters?
+5. Are tables used only where shared columns, comparison, status, ownership, metrics, or policy fields matter?
 6. Would explicit `A. / A-1.` numbering improve scanability?
 7. Are the headings carrying actual messages?
 8. Is any paragraph still too long and better split?
 9. Is any em dash (`—`) used where a colon, parentheses, period, slash, or nested bullet would read more naturally?
+10. Did the draft avoid creating a `핵심 판단` section unless the document is explicitly decision-oriented?
