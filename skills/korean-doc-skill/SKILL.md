@@ -90,7 +90,9 @@ For early business opportunity, market validation, partner review, or investment
 
 Do not overuse inline code formatting for non-code concepts. Transition labels such as `세로 -> 가로`, `가로 -> 세로`, `popup -> full` are usually document semantics, not code. Reserve inline code for real identifiers, commands, fields, enum-like literals, or values that must be copied exactly.
 
-If a table cell contains both the default rule and an exception, do not compress them into one sentence with a hyphen. Prefer a short bullet list inside the cell such as `기본 기준` and `예외` so the reader can scan the rule without reparsing the sentence.
+In Confluence markdown pipelines, inline code around Korean text or identifiers with underscores can export poorly, for example missing spaces around code spans or turning underscores into emphasis. If the exact token does not need to be copied, prefer human-readable labels such as `Rate Card`, `priority override`, `feature scope`, or `campaign id`. If exact field names must be preserved, use a table column or code block that is known to render safely.
+
+If a table cell or policy paragraph contains the default rule, exception handling, and audit/change-history requirement in one sentence, do not compress them together. Prefer a short bullet hierarchy such as `기본 차감 순서`, `예외 처리`, and `변경 이력` so the reader can scan the rule without reparsing the sentence.
 
 When editing an existing Confluence page that already contains native formatting such as row-header first columns, colored change markers, merged cells, embedded images, or other hand-tuned visual polish, do not assume a full markdown rewrite is safe. Prefer a storage-aware HTML edit or a surgical section update so that existing formatting is preserved.
 
@@ -508,6 +510,10 @@ Do not turn short summaries, label-and-detail notes, or two to three related ide
 
 Do not repeat `핵심 판단` as a default section title across documents. Reserve it for real decision material.
 
+Do not merge default policy, exception policy, override behavior, and change-history/audit requirements into one sentence.
+
+Do not use inline code in Confluence-bound prose when it breaks spacing or underscores; choose readable policy labels instead.
+
 Do not repeat the same judgment in slightly different wording.
 
 Do not add summary language unless it actually summarizes something.
@@ -658,3 +664,5 @@ Before returning the final draft, check:
 8. Is any paragraph still too long and better split?
 9. Is any em dash (`—`) used where a colon, parentheses, period, slash, or nested bullet would read more naturally?
 10. Did the draft avoid creating a `핵심 판단` section unless the document is explicitly decision-oriented?
+11. Are default rules, exceptions, overrides, and change-history requirements separated into bullets when they appear together?
+12. Would Confluence markdown preserve inline code and underscores correctly, or should those tokens be written as readable labels?
