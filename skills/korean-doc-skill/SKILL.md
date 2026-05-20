@@ -44,6 +44,8 @@ Use more visual breathing between sections. Leave clear blank lines after headin
 
 If a heading already states the point, do not reopen the section with another explanatory bridge sentence. Go straight to bullets, a concrete memo line, or a table only when shared columns matter.
 
+For Confluence markdown pipelines, exported markdown may collapse blank lines between adjacent blocks. If a bullet list is followed by a table or the next heading, make the boundary explicit with one short purposeful line only when needed, such as `아래 표는 pool 유형별 상세 우선순위다` or `이 기준을 기본 정책으로 두고, 상세 Flow는 다음 절에서 연결한다`. Do not add generic filler; the bridge must explain the role of the next block.
+
 For longer strategy, planning, or report documents, prefer explicit outline numbering. Use top-level labels such as `A.`, `B.`, `C.` and second-level labels such as `A-1.`, `A-2.` when they materially improve scanability. Avoid going deeper than two levels unless the user explicitly wants a more formal tree.
 
 Use bullets only for parallel items. Do not break a single sentence into fake bullets just to make the page look shorter.
@@ -93,6 +95,8 @@ Do not overuse inline code formatting for non-code concepts. Transition labels s
 In Confluence markdown pipelines, inline code around Korean text or identifiers with underscores can export poorly, for example missing spaces around code spans or turning underscores into emphasis. If the exact token does not need to be copied, prefer human-readable labels such as `Rate Card`, `priority override`, `feature scope`, or `campaign id`. If exact field names must be preserved, use a table column or code block that is known to render safely.
 
 If a table cell or policy paragraph contains the default rule, exception handling, and audit/change-history requirement in one sentence, do not compress them together. Prefer a short bullet hierarchy such as `기본 차감 순서`, `예외 처리`, and `변경 이력` so the reader can scan the rule without reparsing the sentence.
+
+When a policy rule is split into bullets and then followed by a table or a new numbered section in Confluence, check the exported markdown or rendered page. If the list appears glued to the following block, insert a short role-setting line before the table or next section instead of relying on blank lines alone.
 
 When editing an existing Confluence page that already contains native formatting such as row-header first columns, colored change markers, merged cells, embedded images, or other hand-tuned visual polish, do not assume a full markdown rewrite is safe. Prefer a storage-aware HTML edit or a surgical section update so that existing formatting is preserved.
 
@@ -666,3 +670,4 @@ Before returning the final draft, check:
 10. Did the draft avoid creating a `핵심 판단` section unless the document is explicitly decision-oriented?
 11. Are default rules, exceptions, overrides, and change-history requirements separated into bullets when they appear together?
 12. Would Confluence markdown preserve inline code and underscores correctly, or should those tokens be written as readable labels?
+13. If a Confluence bullet list is followed by a table or the next heading, is the boundary still clear after export/rendering?

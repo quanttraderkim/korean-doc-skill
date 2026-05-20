@@ -35,6 +35,7 @@
 - inline code 앞뒤 공백이 Confluence export에서 붙지 않는가
 - underscore가 들어간 식별자가 markdown emphasis처럼 깨지지 않는가
 - 정확한 필드명이 꼭 필요하지 않은 곳은 `Rate Card`, `priority override`처럼 읽히는 라벨을 썼는가
+- 리스트 뒤에 표나 다음 제목이 붙을 때, export/rendering 후에도 블록 경계가 분명한가
 
 ## 6. 문서 타입 적합성
 
