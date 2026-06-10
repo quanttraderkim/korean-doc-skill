@@ -4,7 +4,7 @@
 
 ## 1. SKILL 중심
 
-정본은 [`skills/korean-doc-skill/SKILL.md`](./skills/korean-doc-skill/SKILL.md)입니다.
+정본 진입점은 [`skills/korean-doc-skill/SKILL.md`](./skills/korean-doc-skill/SKILL.md)입니다. 문서 타입 프리셋, 예시, Confluence 세부는 같은 폴더의 `PRESETS.md` / `EXAMPLES.md` / `REFERENCE.md`로 분리돼 있고, SKILL.md가 언제 무엇을 읽을지 안내합니다.
 
 ## 2. 사용자 README 우선
 
