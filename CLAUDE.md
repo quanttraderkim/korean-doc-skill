@@ -24,4 +24,4 @@ cp -R skills/korean-doc-skill ~/.claude/skills/
 
 > 이 레포의 `skills/korean-doc-skill/SKILL.md`를 기준으로 이 문서를 upper planning 문서로 다시 써줘. mode는 light report-style. 방향, 우선순위, 1차 범위가 첫 화면에서 보이게 해줘.
 
-이 레포는 스킬 중심 레포입니다. 문서 타입별 세부 구조는 모두 `SKILL.md` 안에서 읽고 추론하는 방향을 기본으로 둡니다.
+이 레포는 스킬 중심 레포입니다. `SKILL.md`는 핵심 규칙과 워크플로만 담은 진입점이고, 문서 타입별 세부 구조는 같은 폴더의 `PRESETS.md`, prefer/avoid 예시는 `EXAMPLES.md`, Confluence 전달 세부는 `REFERENCE.md`에서 필요할 때 읽습니다.
