@@ -9,6 +9,13 @@ Load this only when the output is bound for Confluence or edits an existing wiki
 - Markdown export can collapse blank lines. If a list glues to the next table or heading, add one short role-setting line (`아래 표는 pool 유형별 상세 우선순위`). Never generic filler; the bridge must state the next block's role
 - After export, check rendered block boundaries for list -> table and list -> heading transitions
 
+## Expanded Blocks and Visualizations (펼치기와 시각화)
+
+- 임원 보고나 킥오프 등 비즈니스 기획서에서는 본문에 핵심만 간결하게 두고, "왜/상세 근거"는 펼치기로 접어 스캔 효율성과 정보의 깊이를 양립시킨다.
+- Confluence/Jira 호환성을 위해 펼치기는 `> [!EXPAND] 제목` Markdown 블록을 사용한다.
+- 데이터·수치를 보여주는 문서는 차트, 타임라인 등의 시각화 자료를 첨부하여 스캔을 돕는다.
+- 이미지는 반드시 `![](파일명)` 문법을 사용해야 한다 (일반 URL 링크 문법을 쓰면 Confluence에서 attachment로 붙지 않음).
+
 ## Inline code and identifiers
 
 - Inline code around Korean text or underscore identifiers can export poorly: missing spaces around code spans, underscores turning into emphasis

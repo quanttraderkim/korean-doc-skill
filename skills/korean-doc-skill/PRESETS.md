@@ -5,6 +5,7 @@ Structures below are menus of candidate sections, not mandatory templates. Inclu
 ## Natural-language mapping
 
 - `전략 문서`, `방향성 검토`, `논의 안` -> Strategy Memo
+- `추진 보고`, `킥오프`, `경영진 보고` -> Executive Kickoff / 추진 보고
 - `사업 기회 검토`, `시장 검증`, `파트너 연계 검토`, `사업성 검토`, `MVP 사업 검토` -> Business Opportunity / Market Validation
 - `상위기획`, `연간 계획`, `컨셉 기획` -> Upper Planning / Concept Planning
 - `상세기획`, `PRD`, `기획서` -> PRD / Service Planning Doc
@@ -24,6 +25,14 @@ Structures below are menus of candidate sections, not mandatory templates. Inclu
 5. `다음 액션 / R&R`
 
 Top summaries are bullet-first. Keep `개요`-type sections to the largest changes, purpose, and scope; push edge cases and implementation detail into body sections.
+
+## Executive Kickoff / 추진 보고
+
+Structure: `핵심 요약 (Executive Summary)` / `추진 개요 (목적·범위)` / `추진 계획·일정` / `진행 현황·Key Findings` / `Next Step·핵심 원칙`
+
+- Top summary explicitly structured in an Executive Summary box.
+- Ensure the 'Ask' (목적: 합의, 결정 등) is clearly stated for upcoming reviews.
+- Timelines and stages should be visualized (e.g., Markdown images `![](...)` or tables) to aid rapid scanning.
 
 ## Strategy Memo
 
