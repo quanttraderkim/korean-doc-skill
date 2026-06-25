@@ -9,13 +9,6 @@ Load this only when the output is bound for Confluence or edits an existing wiki
 - Markdown export can collapse blank lines. If a list glues to the next table or heading, add one short role-setting line (`아래 표는 pool 유형별 상세 우선순위`). Never generic filler; the bridge must state the next block's role
 - After export, check rendered block boundaries for list -> table and list -> heading transitions
 
-## Expanded Blocks and Visualizations (펼치기와 시각화)
-
-- 임원 보고나 킥오프 등 비즈니스 기획서에서는 본문에 핵심만 간결하게 두고, "왜/상세 근거"는 펼치기로 접어 스캔 효율성과 정보의 깊이를 양립시킨다.
-- Confluence/Jira 호환성을 위해 펼치기는 `> [!EXPAND] 제목` Markdown 블록을 사용한다.
-- 데이터·수치를 보여주는 문서는 차트, 타임라인 등의 시각화 자료를 첨부하여 스캔을 돕는다.
-- 이미지는 반드시 `![](파일명)` 문법을 사용해야 한다 (일반 URL 링크 문법을 쓰면 Confluence에서 attachment로 붙지 않음).
-
 ## Inline code and identifiers
 
 - Inline code around Korean text or underscore identifiers can export poorly: missing spaces around code spans, underscores turning into emphasis
@@ -29,7 +22,16 @@ Load this only when the output is bound for Confluence or edits an existing wiki
 - Keep terminology aligned across summary, policy, and definition tables. One concept, one term: if the policy table says `미노출`, do not define it elsewhere as `영역 사라짐`
 - Mark changed rows or cells with an explicit version tag (`26.4 변경`) rather than color alone; color may support the cue but must not carry the meaning
 - First-column background shading on label columns (`항목`, `구분`, `용어`) improves scanability when the tool can write native styling; in markdown-only pipelines treat it as optional post-processing
-- Do not hide the main body behind collapsed sections; collapse is for backup material only
+- 핵심 주장·결론은 본문에 펼쳐 두고, 접기(expand)는 상세 근거·배경·계산 과정에 쓴다. 본문 자체를 접기 뒤에 숨기지 말 것. 보고·제안 문서에서 접기는 본문을 핵심 주장으로 간결히 유지하면서 근거 깊이를 함께 제공하는 도구
+
+## 펼치기·이미지·시각화 (conjira markdown round-trip)
+
+conjira의 update-page/create-page는 마크다운을 storage XHTML로 변환한다. 다음 패턴이 round-trip된다.
+
+- 펼치기(expand): `> [!EXPAND] 제목` 한 줄 뒤 인용블록(`>`) 본문 → Confluence expand 매크로로 변환. 핵심 주장은 본문에, 상세 근거·배경·산식은 펼치기로
+- 이미지: `![](파일명.png)` → `ri:attachment` 첨부 참조. 먼저 upload-attachment로 같은 파일명을 페이지에 올린 뒤 본문에서 파일명으로 참조. download URL(`![](https://.../download/...)`)은 외부 링크로 박혀 첨부로 안 붙음
+- 데이터·현황 문서는 차트·타임라인을 본문에 첨부: 표 나열보다 추세·집중도·단계가 한눈에 들어옴 (seaborn/matplotlib 등으로 생성 후 upload-attachment)
+- 한눈 요약(표·차트) + 상세 근거(펼치기)의 균형은 임원·비실무 독자에게 특히 효과적
 
 ## Editing existing pages
 

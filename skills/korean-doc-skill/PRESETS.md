@@ -5,7 +5,6 @@ Structures below are menus of candidate sections, not mandatory templates. Inclu
 ## Natural-language mapping
 
 - `전략 문서`, `방향성 검토`, `논의 안` -> Strategy Memo
-- `추진 보고`, `킥오프`, `경영진 보고` -> Executive Kickoff / 추진 보고
 - `사업 기회 검토`, `시장 검증`, `파트너 연계 검토`, `사업성 검토`, `MVP 사업 검토` -> Business Opportunity / Market Validation
 - `상위기획`, `연간 계획`, `컨셉 기획` -> Upper Planning / Concept Planning
 - `상세기획`, `PRD`, `기획서` -> PRD / Service Planning Doc
@@ -14,6 +13,7 @@ Structures below are menus of candidate sections, not mandatory templates. Inclu
 - `위클리`, `주간 업데이트` -> Weekly Update. 상태판이 큰 보드형이면 Team Weekly Board
 - `이슈 대응 문서`, `Q&A 대응`, `답변 정리` -> Response Memo
 - `이슈 히스토리`, `장애 이력`, `대응 이력` -> Issue History / Incident Log
+- `킥오프`, `추진 보고`, `추진 방향`, `프로젝트 보고`, `임원 공유` -> Executive Kickoff / 추진 보고
 - `실행 가이드`, `점검 절차`, `런북`, `운영 가이드`, `스크립트 사용법`, `체크리스트` -> Execution Guide / Runbook
 
 ## Structural default (no preset matched)
@@ -25,14 +25,6 @@ Structures below are menus of candidate sections, not mandatory templates. Inclu
 5. `다음 액션 / R&R`
 
 Top summaries are bullet-first. Keep `개요`-type sections to the largest changes, purpose, and scope; push edge cases and implementation detail into body sections.
-
-## Executive Kickoff / 추진 보고
-
-Structure: `핵심 요약 (Executive Summary)` / `추진 개요 (목적·범위)` / `추진 계획·일정` / `진행 현황·Key Findings` / `Next Step·핵심 원칙`
-
-- Top summary explicitly structured in an Executive Summary box.
-- Ensure the 'Ask' (목적: 합의, 결정 등) is clearly stated for upcoming reviews.
-- Timelines and stages should be visualized (e.g., Markdown images `![](...)` or tables) to aid rapid scanning.
 
 ## Strategy Memo
 
@@ -80,7 +72,19 @@ Structure: `한 줄 정의` / `언제 쓰는가` / `입력` / `출력` / `핵심
 
 Structure: `목적` / `핵심 요약` / `주요 판단` / `옵션 비교` / `리스크` / `일정/R&R`
 
-- Summary first; collapsed detail only for backup material, never the main argument
+- Summary first; 핵심 주장은 본문에 두고 접기(expand)는 상세 근거·계산 backup에 (본문 자체를 접지 말 것)
+
+## Executive Kickoff / 추진 보고
+
+Structure: `핵심 요약` (Executive Summary) / `추진 개요` (목적·범위) / `추진 계획·일정` / `진행 현황·Key Findings` / `Next Step·핵심 원칙`
+
+- 프로젝트 시작·중간을 임원·비실무자에게 공유하는 문서: 결과 보고가 아니라 추진 틀·방향 합의가 목적
+- 최상단 `핵심 요약`은 3~4불릿 박스 (무엇을 하는 프로젝트·현재 단계·이 문서의 목적이나 Ask). 처음 보는 임원이 첫 화면에서 전체 그림을 잡게
+- 상위·차주 보고를 동반하면 Ask(승인·요청사항)를 명시. 보고 일정은 프로젝트 단계와 별개로 분리 표기
+- 추진 계획·일정은 단계 표 + 타임라인 시각화, 단계별 상태(완료/진행 중/예정) 라벨
+- Key Findings는 토픽 라벨이 아니라 판단형 제목 (`### 원가는 A·B에 편중, 단기 레버는 두 영역에 집중`)
+- 본문은 핵심 주장으로 간결히, 상세 근거·배경은 펼치기(expand)로 접어 깊이 확보 (REFERENCE 참조)
+- 데이터는 확정(실측)과 가설(추정·POC)을 구분 표기
 
 ## Execution Guide / Runbook / Script Usage Guide
 
