@@ -1,9 +1,10 @@
 ---
 name: korean-doc-skill
-description: Rewrites Korean business documents into concise report-style memos. Conclusion first, judgment-carrying headings, bullets under a strict length budget, tables only for real comparisons. Use when Korean docs feel too long, too polite, too abstract, or too hard to scan. Covers strategy memos, business opportunity and market validation docs, upper-planning docs, PRDs, service planning docs, use cases, capability specs, execution guides, runbooks, script usage guides, weekly updates, response memos, issue histories, one-pagers, and hub pages. Use when user says 정리해줘 / 다듬어줘 / 간결하게 / 보고용 메모처럼 / 위키용으로 정리 / 전략 문서로 정리 / PRD처럼 / 위클리 정리 / 런북처럼 / 실행 가이드 / 점검 절차 / 이슈 대응 문서.
+version: 2.0.0
+description: Rewrites Korean business documents into structured report-style memos with an elevated business tone (Action-Oriented, Top-down). Strategy and planning docs are rewritten in dense, professional business language, while execution docs (runbooks, checklists) stay tightly compact. Conclusion first, judgment-carrying headings, bullets under a strict length budget, tables only for real comparisons. Use when Korean docs feel too long, too polite, or lack professional weight.
 homepage: https://github.com/quanttraderkim/korean-doc-skill
 user-invocable: true
-metadata: {"openclaw":{"homepage":"https://github.com/quanttraderkim/korean-doc-skill"}}
+metadata: {"openclaw":{"homepage":"https://github.com/quanttraderkim/korean-doc-skill", "version": "2.0.0"}}
 ---
 
 # Korean Doc Skill
