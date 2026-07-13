@@ -2,7 +2,7 @@
 
 이 레포를 Claude에서 사용할 때의 기본 원칙은 단순합니다.
 
-정본은 [`skills/korean-doc-skill/SKILL.md`](./skills/korean-doc-skill/SKILL.md)입니다. 스킬 이름은 `korean-doc-skill`입니다. Claude Code는 공식적으로 `~/.claude/skills/<skill-name>/SKILL.md` 또는 프로젝트 `.claude/skills/<skill-name>/SKILL.md` 위치의 스킬을 지원하므로, 가능하면 이 경로에 설치해서 실제 skill처럼 쓰는 방식을 권장합니다.
+기준 파일은 [`skills/korean-doc-skill/SKILL.md`](./skills/korean-doc-skill/SKILL.md)입니다. 스킬 이름은 `korean-doc-skill`입니다. Claude Code는 공식적으로 `~/.claude/skills/<skill-name>/SKILL.md` 또는 프로젝트 `.claude/skills/<skill-name>/SKILL.md` 위치의 스킬을 지원하므로, 가능하면 이 경로에 설치해서 실제 skill처럼 쓰는 방식을 권장합니다.
 
 예시:
 

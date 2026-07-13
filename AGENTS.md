@@ -4,7 +4,7 @@
 
 ## 1. SKILL 중심
 
-정본 진입점은 [`skills/korean-doc-skill/SKILL.md`](./skills/korean-doc-skill/SKILL.md)입니다. 문서 타입 프리셋, 예시, Confluence 세부는 같은 폴더의 `PRESETS.md` / `EXAMPLES.md` / `REFERENCE.md`로 분리돼 있고, SKILL.md가 언제 무엇을 읽을지 안내합니다.
+기준 파일은 [`skills/korean-doc-skill/SKILL.md`](./skills/korean-doc-skill/SKILL.md)입니다. 문서 타입 프리셋, 예시, Confluence 세부는 같은 폴더의 `PRESETS.md` / `EXAMPLES.md` / `REFERENCE.md`로 분리돼 있고, SKILL.md가 언제 무엇을 읽을지 안내합니다.
 
 ## 2. 사용자 README 우선
 
@@ -16,4 +16,4 @@ git tracked 파일에는 실제 문서 제목, 제품명, 프로젝트명, URL, 
 
 ## 4. README와 SKILL의 일관성 유지
 
-사용자용 설명은 README에 맞추고, 스킬 규칙의 정본은 [`skills/korean-doc-skill/SKILL.md`](./skills/korean-doc-skill/SKILL.md)에 둡니다. tracked 영역에서는 방법론만 공유하고 실제 회귀 결과는 로컬에서만 관리합니다.
+사용자용 설명은 README에 맞추고, 스킬 규칙의 기준은 [`skills/korean-doc-skill/SKILL.md`](./skills/korean-doc-skill/SKILL.md)에 둡니다. Git에 올리는 영역에서는 방법론만 공유하고 실제 회귀 결과는 로컬에서만 관리합니다.
