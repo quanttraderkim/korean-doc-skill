@@ -1,17 +1,14 @@
 ---
 name: korean-doc-skill
-version: 2.0.0
-description: Rewrites Korean business documents into structured report-style memos with an elevated business tone (Action-Oriented, Top-down). Strategy and planning docs are rewritten in dense, professional business language, while execution docs (runbooks, checklists) stay tightly compact. Conclusion first, judgment-carrying headings, bullets under a strict length budget, tables only for real comparisons. Use when Korean docs feel too long, too polite, or lack professional weight.
-homepage: https://github.com/quanttraderkim/korean-doc-skill
-user-invocable: true
-metadata: {"openclaw":{"homepage":"https://github.com/quanttraderkim/korean-doc-skill", "version": "2.0.0"}}
+description: Rewrites Korean business documents into structured report-style memos using natural Korean workplace language. Avoids invented jargon and literal translations, keeps widely used terms such as DAU and API, and explains unfamiliar concepts in plain sentences. Conclusion first, judgment-carrying headings, concise sections, and tables only for real comparisons. Use when Korean docs feel too long, too polite, too abstract, translated, or hard to scan.
+metadata: {"openclaw":{"homepage":"https://github.com/quanttraderkim/korean-doc-skill", "version": "2.1.0"}}
 ---
 
 # Korean Doc Skill
 
 Korean business documents in report-style memo form: fast comprehension, clear judgments, scan-friendly structure. Structure exists to make the document faster to read. If a rule would add bulk without adding scan value, drop the bulk.
 
-**기본 톤은 간결한 비즈니스 기획서 문어체.** 간결은 빈말·중복·`~입니다` 남발·장황을 걷어내는 것이지 알맹이·근거·전문성을 줄이는 것이 아니다. 목표는 "짧게"가 아니라 "군더더기 없이 dense하게". 비즈 프레임 용어(Top-down, Key Findings, Action-Oriented, 포트폴리오 조정, Quick-win)는 여러 문장을 한 단어로 압축해 간결과 전문성을 동시에 살리는 도구다. 단 영어 용어 남발은 금지(한글 우선, 정착된 용어만). 과도하게 솔직하거나 캐주얼하면 대외 문서에서 프로젝트가 작아 보인다.
+**기본 톤은 간결하고 자연스러운 한국어 업무 문어체.** 간결은 빈말·중복·`~입니다` 남발·장황함을 걷어내는 것이지 알맹이·근거·전문성을 줄이는 것이 아니다. 목표는 짧은 문서가 아니라 군더더기 없이 판단과 근거가 드러나는 문서다. 영어는 DAU·API처럼 업계에서 널리 쓰이는 말이나 제품명·식별자에만 사용하고, 한국어로 쉽게 쓸 수 있는 말은 한국어를 우선한다.
 
 **문서 등급으로 톤 강도를 조절한다.** 전략·기획·보고·제안·킥오프는 비즈니스 기획서 문어체로 격상한다. 런북·체크리스트·위클리 같은 순수 실행·상태 공유 문서만 더 압축한 메모체를 유지한다.
 
@@ -53,6 +50,8 @@ Korean business documents in report-style memo form: fast comprehension, clear j
 
 **12. Preserve source logic** unless the user asks for a report-first rewrite. Add structure first; rewrite substance only when it clearly improves clarity.
 
+**13. Use natural Korean, not word-for-word translation.** 영어 단어에 한국어 단어 하나를 고정 대응하지 않는다. 먼저 문맥상 기능을 파악한 뒤 실제 회의와 보고서에서 쓰는 표현을 고른다. 예를 들어 `boundary`는 저장소의 `역할 구분`, 문서의 `적용 범위`, 수치의 `기준값`, 정책의 `포함·제외 기준`이 될 수 있다. 통용되는 말이 없으면 새 명사나 약어를 만들지 말고 한 문장으로 설명한다. 자세한 예시는 [EXAMPLES.md](EXAMPLES.md)를 본다.
+
 ## Modes
 
 | Mode | Meaning |
@@ -79,3 +78,4 @@ Korean business documents in report-style memo form: fast comprehension, clear j
 5. 빈말·`~입니다` 남발은 걷어냈고, 동시에 알맹이·근거·전문성은 살아 있나?
 6. Headings carry judgments? Tables have real comparison columns? Wiki label bullets promoted to `####`, and only those?
 7. No em dash, no trailing periods on short lines, no inline code on non-code?
+8. 동료가 실제 회의에서 쓸 표현인가? 영어 원문을 몰라도 뜻이 바로 보이며, 같은 영어를 문맥과 무관하게 한 단어로 옮기지 않았나?
