@@ -1,7 +1,7 @@
 ---
 name: korean-doc-skill
-description: Rewrites Korean business documents into structured report-style memos using natural Korean workplace language. Avoids invented jargon and literal translations, keeps widely used terms such as DAU and API, and explains unfamiliar concepts in plain sentences. Conclusion first, judgment-carrying headings, concise sections, and tables only for real comparisons. Use when Korean docs feel too long, too polite, too abstract, translated, or hard to scan.
-metadata: {"openclaw":{"homepage":"https://github.com/quanttraderkim/korean-doc-skill", "version": "2.1.0"}}
+description: Rewrites Korean business documents into structured report-style memos using natural Korean workplace language. Avoids invented jargon and literal translations, keeps widely used terms such as DAU and API, and explains unfamiliar concepts in plain sentences. Conclusion first, judgment-carrying headings, concise sections, and tables only for real comparisons. Use when Korean docs feel too long, too polite, too abstract, translated, or hard to scan. Use when the user says 정리해줘 / 다듬어줘 / 보고서처럼 / 번역투 없애줘 / 자연스러운 한국어로.
+metadata: {"openclaw":{"homepage":"https://github.com/quanttraderkim/korean-doc-skill", "version": "2.2.0"}}
 ---
 
 # Korean Doc Skill
@@ -48,9 +48,11 @@ Korean business documents in report-style memo form: fast comprehension, clear j
 
 **11. Long documents.** Explicit numbering when it aids scanning: `A. / A-1.` for narrative memos, `1. / 3-1.` for 검토 자료. Two levels max. Keep revision history and metadata below the real summary. Mark unverified numbers, costs, and legal feasibility as `가정` / `참고용` / `N/A` / `확인 필요` instead of asserting them. 보고·제안 문서는 본문을 핵심 주장으로 간결히 두고, 상세 근거·배경은 펼치기(expand)로 접어 본문 가독성과 근거 깊이를 동시에 확보한다 (Confluence 적용법은 [REFERENCE.md](REFERENCE.md)).
 
-**12. Preserve source logic** unless the user asks for a report-first rewrite. Add structure first; rewrite substance only when it clearly improves clarity.
+**12. Preserve source logic** unless the user asks for a report-first rewrite. Preserve the claim and evidence, not awkward wording. Source-preserving mode never requires keeping literal translations or unfamiliar jargon.
 
-**13. Use natural Korean, not word-for-word translation.** 영어 단어에 한국어 단어 하나를 고정 대응하지 않는다. 먼저 문맥상 기능을 파악한 뒤 실제 회의와 보고서에서 쓰는 표현을 고른다. 예를 들어 `boundary`는 저장소의 `역할 구분`, 문서의 `적용 범위`, 수치의 `기준값`, 정책의 `포함·제외 기준`이 될 수 있다. 통용되는 말이 없으면 새 명사나 약어를 만들지 말고 한 문장으로 설명한다. 자세한 예시는 [EXAMPLES.md](EXAMPLES.md)를 본다.
+**13. Choose words by function, not dictionary equivalence.** 영어 단어에 한국어 단어 하나를 고정 대응하지 않는다. 문장에서 실제로 하는 역할을 먼저 확인한 뒤 한국 회사의 회의·보고서에서 쓰는 표현을 고른다. `boundary`는 역할 구분·적용 범위·진입 기준·포함·제외 기준이 될 수 있고, `canonical`이나 `source of truth`는 기준 문서·공식 기록·최신본·원본이 될 수 있다. `경계값`·`보안 경계`처럼 이미 자연스러운 전문 용례는 유지한다. 자세한 판단 예시는 [EXAMPLES.md](EXAMPLES.md)를 본다.
+
+**14. Do not coin jargon or abbreviations.** DAU·MAU·API·MCP처럼 널리 쓰이는 용어와 제품명·필드명은 유지한다. 통용 여부가 불분명한 약어는 만들지 않는다. 뜻이 불분명한 새 지표명 대신 분자·분모·기간을 그대로 풀어 쓰고, 이름을 붙일 때는 계산값의 의미가 달라지지 않는지 확인한다. 익숙한 표현이 없으면 새 명사를 만들지 말고 한 문장으로 설명한다.
 
 ## Modes
 
@@ -66,8 +68,9 @@ Korean business documents in report-style memo form: fast comprehension, clear j
 2. Pick a mode (default: light report-style)
 3. Restructure the outline first; drop menu sections that have no real content
 4. Convert narrative blocks into: judgment heading + short paragraph, nested bullets, or a table only when columns truly compare
-5. Density pass (rule 2): 라벨 섹션 3불릿 상한·1불릿 1줄, 빈말·중복·filler 제거. 단 근거·전문성은 깎지 말 것 (간결 ≠ 알맹이 축약)
-6. Run the self-check. For Confluence delivery and page-editing details read [REFERENCE.md](REFERENCE.md); for prefer/avoid samples see [EXAMPLES.md](EXAMPLES.md)
+5. Natural-language pass (rules 13, 14): 직역처럼 보이는 명사와 낯선 약어를 표시하고, 문장에서 하는 역할을 확인해 다시 쓴다. 널리 쓰이는 전문 용어와 정확한 식별자는 유지한다
+6. Density pass (rule 2): 라벨 섹션 3불릿 상한·1불릿 1줄, 빈말·중복·filler 제거. 단 근거·전문성은 깎지 말 것 (간결 ≠ 알맹이 축약)
+7. Run the self-check. For Confluence delivery and page-editing details read [REFERENCE.md](REFERENCE.md); for prefer/avoid samples see [EXAMPLES.md](EXAMPLES.md)
 
 ## Self-check
 
@@ -78,4 +81,5 @@ Korean business documents in report-style memo form: fast comprehension, clear j
 5. 빈말·`~입니다` 남발은 걷어냈고, 동시에 알맹이·근거·전문성은 살아 있나?
 6. Headings carry judgments? Tables have real comparison columns? Wiki label bullets promoted to `####`, and only those?
 7. No em dash, no trailing periods on short lines, no inline code on non-code?
-8. 동료가 실제 회의에서 쓸 표현인가? 영어 원문을 몰라도 뜻이 바로 보이며, 같은 영어를 문맥과 무관하게 한 단어로 옮기지 않았나?
+8. 동료가 실제 회의에서 쓸 표현인가? `경계`, `정본`, `오너`, `드라이버` 같은 말이 문맥상 정말 필요한가?
+9. 영어 원문 없이도 뜻이 바로 보이는가? 널리 쓰이는 용어·제품명·필드명은 유지하고, 통용되지 않는 새 약어는 만들지 않았나?

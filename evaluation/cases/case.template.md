@@ -4,6 +4,9 @@
 - 원본 위치: local-only mapping 참고
 - 독자: 예) 리더, 기획, 개발, 운영 협업자
 - 기본 적용 모드: Source-preserving / Light report-style / Report-first
+- 직역 가능성이 있는 표현: 예) boundary, source of truth, owner
+- 반드시 유지할 용어: 예) DAU, API, 정확한 필드명
+- 용어 합격 조건: 문맥에 맞는 표현으로 바꾸되 통용어와 식별자는 유지
 
 ## 이 케이스를 쓰는 이유
 

@@ -1,42 +1,42 @@
-# Reference: Confluence / Wiki Delivery
+# Confluence·위키 작성 참고
 
-Load this only when the output is bound for Confluence or edits an existing wiki page.
+결과를 Confluence에 올리거나 기존 위키를 수정할 때만 읽는다.
 
-## Page body basics
+## 본문 작성
 
-- Do not repeat the page title as a top-level `#` heading. Confluence renders the title above the body; start with a short lead or the first real section
-- Leave blank lines between blocks (heading -> paragraph -> table -> code). Do not stack them densely
-- Markdown export can collapse blank lines. If a list glues to the next table or heading, add one short role-setting line (`아래 표는 pool 유형별 상세 우선순위`). Never generic filler; the bridge must state the next block's role
-- After export, check rendered block boundaries for list -> table and list -> heading transitions
+- 본문에서 페이지 제목을 최상단 `#` 제목으로 반복하지 않는다. Confluence가 제목을 본문 위에 표시하므로 짧은 도입문이나 첫 번째 실제 섹션으로 시작
+- 제목·문단·표·코드 블록 사이에 빈 줄을 두고 지나치게 붙이지 않음
+- 마크다운 변환 과정에서 빈 줄이 사라질 수 있음. 목록이 다음 표나 제목에 붙으면 다음 블록의 역할을 설명하는 짧은 문장 추가 (`아래 표는 유형별 상세 우선순위를 정리`). 내용 없는 연결 문장은 금지
+- 변환 후 목록 -> 표, 목록 -> 제목 사이가 분명하게 보이는지 확인
 
-## Inline code and identifiers
+## 코드 표기와 식별자
 
-- Inline code around Korean text or underscore identifiers can export poorly: missing spaces around code spans, underscores turning into emphasis
-- If the token does not need to be copied exactly, use readable labels (`Rate Card`, `priority override`, `campaign id`)
-- Exact field names that must be preserved go in a table column or a code block that renders safely
+- 한국어 문장 속 코드 표기와 밑줄이 있는 식별자는 변환 시 공백이 사라지거나 밑줄이 강조 표시로 바뀔 수 있음
+- 정확히 복사할 값이 아니면 읽기 쉬운 라벨 사용 (`요금표`, `우선 적용 규칙`, `캠페인 ID`)
+- 반드시 보존해야 하는 정확한 필드명은 표의 별도 열이나 안전하게 표시되는 코드 블록에 배치
 
-## Table conventions
+## 표 작성
 
-- Column labels: literal and functional (`변경 항목`, `이번 변경 범위`, `유지 정책`, `예외`, `다음 액션`) over labels that need interpretation (`핵심 판단`, `주요 내용`)
-- Qualify scope-ambiguous labels: `26.4 변경 항목`, `이번 현행화 범위`, not bare `적용 대상`
-- Keep terminology aligned across summary, policy, and definition tables. One concept, one term: if the policy table says `미노출`, do not define it elsewhere as `영역 사라짐`
-- Mark changed rows or cells with an explicit version tag (`26.4 변경`) rather than color alone; color may support the cue but must not carry the meaning
-- First-column background shading on label columns (`항목`, `구분`, `용어`) improves scanability when the tool can write native styling; in markdown-only pipelines treat it as optional post-processing
-- 핵심 주장·결론은 본문에 펼쳐 두고, 접기(expand)는 상세 근거·배경·계산 과정에 쓴다. 본문 자체를 접기 뒤에 숨기지 말 것. 보고·제안 문서에서 접기는 본문을 핵심 주장으로 간결히 유지하면서 근거 깊이를 함께 제공하는 도구
+- 열 이름은 해석이 필요한 추상어(`핵심 판단`, `주요 내용`)보다 기능이 바로 보이는 표현(`변경 항목`, `이번 변경 범위`, `유지 정책`, `예외`, `다음 액션`) 사용
+- 범위가 모호한 라벨은 기준을 함께 표시: `26.4 변경 항목`, `이번 현행화 범위`처럼 쓰고 `적용 대상`만 단독으로 두지 않음
+- 요약표·정책표·정의표에서 같은 개념은 같은 용어 사용. 정책표가 `미노출`이면 다른 표에서 이유 없이 `영역 사라짐`으로 바꾸지 않음
+- 바뀐 행·셀은 색상만 쓰지 말고 `26.4 변경`처럼 버전을 글자로 표시. 색상은 보조 수단으로만 사용
+- Confluence 고유 서식을 쓸 수 있으면 `항목`, `구분`, `용어` 같은 첫 번째 열에 옅은 배경색을 적용해 읽기 쉽게 구성. 마크다운만 쓸 때는 선택 사항
+- 핵심 주장·결론은 본문에 펼쳐 두고 접기(expand)는 상세 근거·배경·계산 과정에 사용. 본문 자체를 접기 뒤에 숨기지 않음
 
-## 펼치기·이미지·시각화 (conjira markdown round-trip)
+## 펼치기·이미지·차트 (conjira 마크다운 변환)
 
-conjira의 update-page/create-page는 마크다운을 storage XHTML로 변환한다. 다음 패턴이 round-trip된다.
+conjira의 `update-page`·`create-page`는 마크다운을 storage XHTML로 변환한다. 아래 형식을 사용할 수 있다.
 
-- 펼치기(expand): `> [!EXPAND] 제목` 한 줄 뒤 인용블록(`>`) 본문 → Confluence expand 매크로로 변환. 핵심 주장은 본문에, 상세 근거·배경·산식은 펼치기로
-- 이미지: `![](파일명.png)` → `ri:attachment` 첨부 참조. 먼저 upload-attachment로 같은 파일명을 페이지에 올린 뒤 본문에서 파일명으로 참조. download URL(`![](https://.../download/...)`)은 외부 링크로 박혀 첨부로 안 붙음
-- 데이터·현황 문서는 차트·타임라인을 본문에 첨부: 표 나열보다 추세·집중도·단계가 한눈에 들어옴 (seaborn/matplotlib 등으로 생성 후 upload-attachment)
-- 한눈 요약(표·차트) + 상세 근거(펼치기)의 균형은 임원·비실무 독자에게 특히 효과적
+- 펼치기(expand): `> [!EXPAND] 제목` 뒤에 인용 블록(`>`) 본문 작성. Confluence expand 매크로로 변환됨. 핵심 주장은 본문에, 상세 근거·배경·산식은 펼치기에 배치
+- 이미지: `![](파일명.png)`은 `ri:attachment` 첨부 참조로 변환됨. 먼저 `upload-attachment`로 같은 파일명을 올린 뒤 본문에서 참조. 다운로드 URL은 첨부가 아니라 외부 링크로 남음
+- 데이터·현황 문서는 차트와 타임라인을 본문에 첨부. 표만 나열하는 것보다 추세·집중도·단계가 한눈에 보임
+- 임원·비실무 독자에게는 한눈 요약(표·차트)과 상세 근거(펼치기)를 함께 제공
 
-## Editing existing pages
+## 기존 페이지 수정
 
-- Native-managed pages (hand-tuned colors, merged cells, embedded images, smart links, manual layout): prefer storage-aware HTML edits or surgical section updates over a full markdown rewrite, which destroys that polish
-- Inline comments are stored as `<ac:inline-comment-marker ac:ref="...">` around the highlighted text in storage XML. A full body overwrite erases the markers and the comments become dangling
-- Dangling comments do not auto-reattach, even if the original text and a matching marker reappear. The comment body survives in the sidebar; restoring the anchor is manual UI work
-- Before a full overwrite, check for inline comments. If present, warn the user and prefer partial edits: replace one section under a heading, insert after a heading, or append
-- If comments are already dangling after an earlier edit, say so plainly and point to the manual recovery path instead of claiming a fix
+- 사람이 색상·병합 셀·이미지·스마트 링크·배치를 직접 다듬은 페이지는 마크다운 전체 교체보다 storage HTML이나 섹션 단위 수정을 우선. 전체 교체 시 기존 서식이 사라질 수 있음
+- 인라인 댓글 위치는 storage XML의 `<ac:inline-comment-marker ac:ref="...">`에 저장됨. 본문 전체를 덮어쓰면 표시가 사라져 댓글과 본문 연결이 끊김
+- 연결이 끊긴 댓글은 같은 본문과 표시를 다시 넣어도 자동으로 복구되지 않음. 댓글 내용은 옆 패널에 남지만 위치 연결은 화면에서 직접 복구해야 함
+- 전체 교체 전 인라인 댓글을 확인. 댓글이 있으면 사용자에게 알리고 제목 아래 한 섹션 교체·제목 뒤 삽입·끝에 추가하는 부분 수정을 우선
+- 이전 수정으로 댓글 연결이 이미 끊겼으면 복구했다고 단정하지 말고 현재 상태와 화면에서 직접 복구할 방법을 안내
