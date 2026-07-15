@@ -52,7 +52,7 @@ Korean business documents in report-style memo form: fast comprehension, clear j
 
 **13. Choose words by function, not dictionary equivalence.** 영어 단어에 한국어 단어 하나를 고정 대응하지 않는다. 문장에서 실제로 하는 역할을 먼저 확인한 뒤 한국 회사의 회의·보고서에서 쓰는 표현을 고른다. `boundary`는 역할 구분·적용 범위·진입 기준·포함·제외 기준이 될 수 있고, `canonical`이나 `source of truth`는 기준 문서·공식 기록·최신본·원본이 될 수 있다. `경계값`·`보안 경계`처럼 이미 자연스러운 전문 용례는 유지한다. 자세한 판단 예시는 [EXAMPLES.md](EXAMPLES.md)를 본다.
 
-**14. Do not coin jargon or abbreviations.** DAU·MAU·API·MCP처럼 널리 쓰이는 용어와 제품명·필드명은 유지한다. 통용 여부가 불분명한 약어는 만들지 않는다. 예를 들어 새 약어 대신 `활성 사용자 1명당 비용`처럼 뜻을 풀고 필요한 경우 산식과 분모를 함께 쓴다. 익숙한 표현이 없으면 새 명사를 만들지 말고 한 문장으로 설명한다.
+**14. Do not coin jargon or abbreviations.** DAU·MAU·API·MCP처럼 널리 쓰이는 용어와 제품명·필드명은 유지한다. 통용 여부가 불분명한 약어는 만들지 않는다. 뜻이 불분명한 새 지표명 대신 분자·분모·기간을 그대로 풀어 쓰고, 이름을 붙일 때는 계산값의 의미가 달라지지 않는지 확인한다. 익숙한 표현이 없으면 새 명사를 만들지 말고 한 문장으로 설명한다.
 
 ## Modes
 
