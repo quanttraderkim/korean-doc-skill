@@ -31,6 +31,27 @@ Avoid: adding `시사점`, `리스크`, `보고 시 설명 포인트` with one g
 
 Prefer: omit the section. A preset is a menu. An empty-calorie section costs the reader more than a missing one.
 
+## The requester is usually not the audience
+
+Avoid: writing a shared document as an assistant progress report to the requester.
+
+> 요청하신 7월 자료를 검토했습니다. 데이터 파일 세 개를 대조했고 일부 값은 추가 확인 중입니다.
+
+Prefer: start with what the document's actual audience needs to know.
+
+### 7월 원가는 두 기능에 집중
+
+- 두 기능이 단가 확인 원가의 82% 차지
+- 단가 미확인 모델은 합계에서 제외
+
+`어떤 파일을 열었는지`, `몇 차례 검토했는지`, `에이전트가 무엇을 확인했는지`는 공유 본문이 아니라 작업 기록에 둔다. 다만 단가 미확인처럼 결과 해석을 바꾸는 한계는 관련 결과 바로 아래에 남긴다. PRD의 미결 정책이나 런북의 중단 조건처럼 독자가 직접 사용해야 하는 제약도 삭제하지 않는다.
+
+Avoid: `자료가 제한적이므로 추가 검토가 필요합니다. 필요하시면 세부 내용을 더 확인하겠습니다.`
+
+Prefer: `사용자 식별값이 없어 개인별 재사용률은 계산할 수 없음.`
+
+무엇이 부족한지와 어떤 판단이 불가능한지가 없으면 한계가 아니라 방어 문구다.
+
 ## Leadership-report detail bloat
 
 Avoid: 후속 논의가 필요하다는 한 판단을 `후보 비교`, `논의 순서`, `출시 준비`, `향후 지표`, `필요한 기록`, `다음 결정` 표로 각각 풀어 같은 사용자 수요·권한·QA·측정 조건을 여러 번 반복한다. 열 구성이 맞아도 리더가 각 표를 비교해 별도 결정을 내리지 않는다면 보고 본문에는 필요하지 않다.
