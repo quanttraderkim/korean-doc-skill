@@ -16,8 +16,8 @@ ln -sfn "$(pwd)/skills/korean-doc-skill" ~/.claude/skills/korean-doc-skill
 권장 순서:
 
 1. `skills/korean-doc-skill/SKILL.md`를 읽게 함
-2. 문서 타입과 독자, 독자가 내려야 할 판단·다음 행동 지정
-3. `source-preserving`, `light report-style`, `report-first` 중 mode 지정
+2. 문서 타입과 독자, 문서가 도울 일(판단·분석·정의·실행·추적·참고) 지정
+3. 필요할 때만 `source-preserving`, `light report-style`, `report-first` 중 mode 지정. 생략하면 문서 타입에 맞춰 선택
 4. 원문 초안을 함께 제공
 
 예시:

@@ -63,6 +63,8 @@ Prefer: 권한이 실제 결정 조건인 섹션 한 곳에서만 설명하고, 
 
 ## Headings
 
+전략 문서와 분석 결과 섹션은 제목에서 확인된 결과나 의미를 보여준다.
+
 Prefer:
 
 - `### 무료 사용자 수익화는 필요하나 총매출 영향은 제한적`
@@ -74,6 +76,15 @@ Avoid:
 - `### 타깃`
 
 The good examples carry a judgment in the heading itself. The bad ones are topic labels that force the reader into the body to find the message.
+
+다만 제목의 역할은 문서 유형에 따라 다르다. 아래 제목은 PRD·런북·참고 위키에서 그대로 사용할 수 있다.
+
+- `### 예약 가능 조건과 적용 시간대`
+- `### 큐 지연 여부 확인`
+- `### 데이터셋과 적재 주기`
+- `### 조인 및 집계 제한`
+
+Avoid: 데이터 분석의 결과 섹션을 `### 분석 방법`, `### 집계 한계`, `### 비교 기준`만으로 구성해 확인된 결과가 제목에서 보이지 않게 만드는 것. 방법·분모·한계는 관련 결과 아래에 두되, 방법 검증이나 데이터 카탈로그가 문서 목적이면 주제형 제목을 유지한다.
 
 ## Bullets
 
