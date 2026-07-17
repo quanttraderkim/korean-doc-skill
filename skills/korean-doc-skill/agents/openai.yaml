@@ -1,4 +1,4 @@
 interface:
   display_name: "Korean Doc Skill"
-  short_description: "한국어 비즈니스 문서를 보고용 메모체와 자연스러운 업무 표현으로 다듬는 가이드"
-  default_prompt: "Use $korean-doc-skill to rewrite this Korean business document with judgment-led headings, concise parallel bullets, and natural Korean workplace wording; avoid long declarative prose, literal translations, and invented jargon while preserving widely used terms and evidence."
+  short_description: "독자에게 필요한 판단만 남겨 한국어 업무 문서를 간결하게 다듬는 가이드"
+  default_prompt: "Use $korean-doc-skill to rewrite this Korean business document for its intended reader and decision, keeping one home per point, using tables only when they shorten a real comparison, and preserving sufficient evidence in natural Korean workplace language."

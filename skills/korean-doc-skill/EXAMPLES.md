@@ -31,6 +31,36 @@ Avoid: adding `시사점`, `리스크`, `보고 시 설명 포인트` with one g
 
 Prefer: omit the section. A preset is a menu. An empty-calorie section costs the reader more than a missing one.
 
+## Leadership-report detail bloat
+
+Avoid: 후속 논의가 필요하다는 한 판단을 `후보 비교`, `논의 순서`, `출시 준비`, `향후 지표`, `필요한 기록`, `다음 결정` 표로 각각 풀어 같은 사용자 수요·권한·QA·측정 조건을 여러 번 반복한다. 열 구성이 맞아도 리더가 각 표를 비교해 별도 결정을 내리지 않는다면 보고 본문에는 필요하지 않다.
+
+Prefer:
+
+### 첫 적용 항목은 사용자 수요와 구현 여건을 확인한 뒤 결정
+
+- 안내 경로와 업무 도구는 역할이 다르므로 각각 수요와 구현 가능성 확인 필요
+- 이용 확대 방안은 대표 업무뿐 아니라 첫 사용 안내·속도·오류·권한 개선도 함께 검토
+- 적용 대상·기간·확인 방법은 개발 범위를 정한 뒤 결정
+
+검증에 필요한 구현 조건이나 지표 정의가 있으면 한 개의 펼치기나 별도 실무 문서에 모은다. 같은 판단을 뒷받침하지 않거나 예상 질문에도 쓰이지 않는 세부는 펼치기에 보관하지 않고 삭제한다.
+
+리더용 한 장이 하나의 결정만 다룬다면 `사용자 수요`, `구현`, `권한`, `QA`, `운영`, `지표`를 각각 소제목으로 만들지 않는다. `제안`, `판단 기준`, `논의 필요사항`처럼 2~3개의 판단 단위로 묶고, 별도 실무 문서로 옮긴 세부 항목을 본문에서 다시 나열하지 않는다.
+
+Avoid: 기존 전략 문서의 7장만 고치면서 장 안에 `목적`과 `핵심 요약`을 새로 만들고, 이어지는 소제목에서 같은 판단을 다시 설명한다.
+
+Prefer: 문서 전체의 요약은 그대로 두고 7장에서는 2~3개의 판단형 소제목이나 판단 불릿부터 시작한다.
+
+Avoid: `이용이 일부 사용자에게 집중돼 있음. 대표 업무를 검토.`처럼 현황과 제안 사이의 이유를 삭제한다.
+
+Prefer: `이용이 일부 사용자에게 집중돼 전체 활성률이 낮으면 고객사가 계약 규모나 사용자별 한도를 줄일 수 있음. 신규·반복 사용을 늘릴 대표 업무를 검토할 필요.`처럼 현재 사실이 어떤 사업 위험·기회로 이어지고 왜 제안이 필요한지 한 번은 연결한다.
+
+## One home per point
+
+Avoid: `권한 확인 필요`를 후보 표, 출시 준비 표, 리스크, 다음 액션에서 반복한다.
+
+Prefer: 권한이 실제 결정 조건인 섹션 한 곳에서만 설명하고, 다른 섹션에서는 반복하지 않거나 해당 섹션을 짧게 안내한다.
+
 ## Headings
 
 Prefer:
@@ -195,9 +225,13 @@ Use tables for:
 - ownership / R&R
 - repeated status, metric, policy, or question fields
 
+Real columns are necessary but not sufficient. Use a table only when the reader must compare the rows on those columns and the table is faster than 2~3 bullets.
+
 Do not use tables for:
 
 - one short claim or one example sentence
 - label + explanation content (`항목 / 설명`, `항목 / 판단`)
 - sequential reasoning
 - two or three related bullets without shared columns
+- a working-level checklist that does not affect the report reader's decision
+- multiple tables that answer the same question with different headings

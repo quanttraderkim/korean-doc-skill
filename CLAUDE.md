@@ -8,7 +8,7 @@
 
 ```bash
 mkdir -p ~/.claude/skills
-cp -R skills/korean-doc-skill ~/.claude/skills/
+ln -sfn "$(pwd)/skills/korean-doc-skill" ~/.claude/skills/korean-doc-skill
 ```
 
 설치 후에는 자동으로 관련 문서에서 로드되거나 `/korean-doc-skill`로 직접 호출할 수 있습니다.
@@ -16,12 +16,12 @@ cp -R skills/korean-doc-skill ~/.claude/skills/
 권장 순서:
 
 1. `skills/korean-doc-skill/SKILL.md`를 읽게 함
-2. 문서 타입 지정
+2. 문서 타입과 독자, 독자가 내려야 할 판단·다음 행동 지정
 3. `source-preserving`, `light report-style`, `report-first` 중 mode 지정
 4. 원문 초안을 함께 제공
 
 예시:
 
-> 이 레포의 `skills/korean-doc-skill/SKILL.md`를 기준으로 이 문서를 upper planning 문서로 다시 써줘. mode는 light report-style. 방향, 우선순위, 1차 범위가 첫 화면에서 보이게 해줘.
+> 이 레포의 `skills/korean-doc-skill/SKILL.md`를 기준으로 이 문서를 리더용 upper planning 문서로 다시 써줘. mode는 light report-style. 방향, 우선순위, 1차 범위가 첫 화면에서 보이고 구현 상세는 결정에 필요한 내용만 남겨줘.
 
 이 레포는 스킬 중심 레포입니다. `SKILL.md`는 핵심 규칙과 워크플로만 담은 진입점이고, 문서 타입별 세부 구조는 같은 폴더의 `PRESETS.md`, prefer/avoid 예시는 `EXAMPLES.md`, Confluence 전달 세부는 `REFERENCE.md`에서 필요할 때 읽습니다.
