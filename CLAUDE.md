@@ -16,8 +16,8 @@ ln -sfn "$(pwd)/skills/korean-doc-skill" ~/.claude/skills/korean-doc-skill
 권장 순서:
 
 1. `skills/korean-doc-skill/SKILL.md`를 읽게 함
-2. 문서 타입과 독자, 독자가 내려야 할 판단·다음 행동 지정
-3. `source-preserving`, `light report-style`, `report-first` 중 mode 지정
+2. 문서 타입과 독자, 문서가 도울 일(판단·분석·정의·실행·추적·참고) 지정
+3. 필요할 때만 `source-preserving`, `light report-style`, `report-first` 중 mode 지정. 생략하면 문서 타입에 맞춰 선택
 4. 원문 초안을 함께 제공
 
 예시:
@@ -25,3 +25,7 @@ ln -sfn "$(pwd)/skills/korean-doc-skill" ~/.claude/skills/korean-doc-skill
 > 이 레포의 `skills/korean-doc-skill/SKILL.md`를 기준으로 이 문서를 리더용 upper planning 문서로 다시 써줘. mode는 light report-style. 방향, 우선순위, 1차 범위가 첫 화면에서 보이고 구현 상세는 결정에 필요한 내용만 남겨줘.
 
 이 레포는 스킬 중심 레포입니다. `SKILL.md`는 핵심 규칙과 워크플로만 담은 진입점이고, 문서 타입별 세부 구조는 같은 폴더의 `PRESETS.md`, prefer/avoid 예시는 `EXAMPLES.md`, Confluence 전달 세부는 `REFERENCE.md`에서 필요할 때 읽습니다.
+
+## 브랜치와 공용 스킬 갱신
+
+공용 스킬 경로가 기본 checkout을 직접 가리키므로 기본 checkout은 항상 `main`에 두고 브랜치를 전환하지 않습니다. Feature branch와 PR은 별도 git worktree에서 작업하며, 공용 스킬 갱신은 PR을 `main`에 병합한 뒤 기본 checkout을 최신 `main`으로 갱신하는 별도 배포 단계로 진행합니다.

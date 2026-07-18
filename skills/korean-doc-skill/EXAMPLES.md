@@ -31,6 +31,48 @@ Avoid: adding `시사점`, `리스크`, `보고 시 설명 포인트` with one g
 
 Prefer: omit the section. A preset is a menu. An empty-calorie section costs the reader more than a missing one.
 
+## The requester is usually not the audience
+
+Avoid: writing a shared document as an assistant progress report to the requester.
+
+> 요청하신 7월 자료를 검토했습니다. 데이터 파일 세 개를 대조했고 일부 값은 추가 확인 중입니다.
+
+Prefer: start with what the document's actual audience needs to know.
+
+### 7월 원가는 두 기능에 집중
+
+- 두 기능이 단가 확인 원가의 82% 차지
+- 단가 미확인 모델은 합계에서 제외
+
+`어떤 파일을 열었는지`, `몇 차례 검토했는지`, `에이전트가 무엇을 확인했는지`는 공유 본문이 아니라 작업 기록에 둔다. 다만 단가 미확인처럼 결과 해석을 바꾸는 한계는 관련 결과 바로 아래에 남긴다. PRD의 미결 정책이나 런북의 중단 조건처럼 독자가 직접 사용해야 하는 제약도 삭제하지 않는다.
+
+Avoid: `자료가 제한적이므로 추가 검토가 필요합니다. 필요하시면 세부 내용을 더 확인하겠습니다.`
+
+Prefer: `사용자 식별값이 없어 개인별 재사용률은 계산할 수 없음.`
+
+무엇이 부족한지와 어떤 판단이 불가능한지가 없으면 한계가 아니라 방어 문구다.
+
+## Remove the unsupported proposal and its rebuttal together
+
+Avoid: a report makes an unsupported proposal from one composition ratio, then keeps the rebuttal and a follow-up data list after the proposal is removed.
+
+> 입력 비용 비중이 높으므로 입력량을 줄여야 함.
+>
+> 다만 이 서비스는 사용자 요청뿐 아니라 시스템 지시와 조회 문맥도 입력에 포함하므로, 이 비중만으로 입력량이 과도하다고 판단하지 않음.
+>
+> 추가로 필요한 자료: 요청 유형, 사용 모델, 결과 품질
+
+Prefer: remove the unsupported proposal, the ratio that is not independently needed for the audience's understanding, judgment, or action, and its rebuttal together. Keep the separate finding that still has evidence.
+
+### 비용은 고가 모델 두 개에 집중
+
+- 고가 모델 두 개가 확인된 비용의 70% 이상을 차지
+- 간단한 요청과 복잡한 요청에 같은 모델을 쓰는지 확인한 뒤 모델 선택 방식 검토
+
+The preferred report does not mention the input-cost ratio because it is not independently needed for the audience's understanding, judgment, or action. The draft's own mistake does not prove that readers need a warning about it. Move the data needed for later analysis to the worklog. Keep an interpretation limit only when the audience would otherwise make a consequential misreading.
+
+Do not apply this deletion rule to an official decision record that must explain why an option was excluded, or to a PRD whose reader must resolve an open policy. Those are required decision or implementation details, not drafting residue.
+
 ## Leadership-report detail bloat
 
 Avoid: 후속 논의가 필요하다는 한 판단을 `후보 비교`, `논의 순서`, `출시 준비`, `향후 지표`, `필요한 기록`, `다음 결정` 표로 각각 풀어 같은 사용자 수요·권한·QA·측정 조건을 여러 번 반복한다. 열 구성이 맞아도 리더가 각 표를 비교해 별도 결정을 내리지 않는다면 보고 본문에는 필요하지 않다.
@@ -63,6 +105,8 @@ Prefer: 권한이 실제 결정 조건인 섹션 한 곳에서만 설명하고, 
 
 ## Headings
 
+전략 문서와 분석 결과 섹션은 제목에서 확인된 결과나 의미를 보여준다.
+
 Prefer:
 
 - `### 무료 사용자 수익화는 필요하나 총매출 영향은 제한적`
@@ -74,6 +118,15 @@ Avoid:
 - `### 타깃`
 
 The good examples carry a judgment in the heading itself. The bad ones are topic labels that force the reader into the body to find the message.
+
+다만 제목의 역할은 문서 유형에 따라 다르다. 아래 제목은 PRD·런북·참고 위키에서 그대로 사용할 수 있다.
+
+- `### 예약 가능 조건과 적용 시간대`
+- `### 큐 지연 여부 확인`
+- `### 데이터셋과 적재 주기`
+- `### 조인 및 집계 제한`
+
+Avoid: 데이터 분석의 결과 섹션을 `### 분석 방법`, `### 집계 한계`, `### 비교 기준`만으로 구성해 확인된 결과가 제목에서 보이지 않게 만드는 것. 방법·분모·한계는 관련 결과 아래에 두되, 방법 검증이나 데이터 카탈로그가 문서 목적이면 주제형 제목을 유지한다.
 
 ## Bullets
 
